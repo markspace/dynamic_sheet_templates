@@ -1,0 +1,977 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <title>DST Dev Kit</title>
+  <script type="text/javascript" src="javascripts/jquery-1.3.2.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.jeditable-1.7.1.js"></script>
+  <script type="text/javascript" src="javascripts/namespace.js"></script>
+  
+  <!-- This is where we do our magic. Take a look to get a better understanding of how to write javascript for your DST. -->
+  <script type="text/javascript" src="http://www.obsidianportal.com/javascripts/characters.js"></script>
+  
+  <!-- Load the example data. Modify this file to make sample data for your chosen system. -->
+  <script type="text/javascript" src="laundry_example.js"></script>
+  
+  <!-- Load the CSS for the DST, replace with your own! -->
+  <link href="dynamic_sheets/laundry/sheet.css" media="screen" rel="stylesheet" type="text/css" />
+  
+  <!-- Load the JS for the DST, replace with your own! -->
+  <script type="text/javascript" src="dynamic_sheets/laundry/sheet.js"></script>
+  
+</head>
+<body>
+  <p>
+    Below is an example dynamic character sheet. Try clicking on the values in order to edit them. This is how users will interact with a dynamic sheet.
+  </p>
+  <p>
+    If you want to make your own, make sure to <a href="http://help.obsidianportal.com/faqs/advanced/creating-a-dynamic-character-sheet-template-dst">read the tutorial</a> first. Then, just start editing the HTML in this file. Edit the sample data in <em>example_data.js</em> in order to create data that works with your chosen game system.
+  </p>
+  
+  <div class="dynamic_sheet_container">
+  
+    <!-- Every dynamic sheet will be surrounded by a div that has the class of "ds_DST_SLUG". In this example, the slug for my DST is 'minimal4e' -->
+    <div id="dynamic_sheet_999" class="dynamic_sheet ds_laundry editable">
+      <!-- This is inserted automatically. Ignore it... -->
+      <span style="display:none;" class="dst_slug">laundry</span>
+      <!-- 
+      Below is your HTML template.
+      Copy ONLY this section into the HTML Template textarea on Obsidian Portal. Do not copy any of the
+      surrounding HTML!
+      -->
+
+            <div class="content">
+                <div class="coc_page1_split">
+                    <!--        <div class="coc_gametitle">
+                                <span class="coc_gametitle">Call of Cthulhu</span>
+                                <div class="author">
+                                    <span class="">DST Author:</span>
+                                    <span class="dsf dsf_dst_author"></span>
+                                </div>
+                            </div>-->
+                    <div class="character_info coc_main_box">
+                        <span class="coc_header">Capital Laundry Services</span>
+                        <span class="coc_header">Personnel Record</span>
+                        <div class="main_page_column">
+                            <div class="column_left">
+                                <div class="name">
+                                    <span class="coc_title">Name:</span>
+                                    <span class="dsf dsf_name"></span>
+                                </div>
+                                <div class="player">
+                                    <span class="coc_title">Player:</span>
+                                    <span class="dsf dsf_player"></span>
+                                </div>
+                                <div class="campaign">
+                                    <span class="coc_title">Campaign:</span>
+                                    <span class="dsf dsf_campaign"></span>
+                                </div>
+                                <div class="position">
+                                    <span class="coc_title">Position:</span>
+                                    <span class="dsf dsf_position"></span>
+                                </div>
+                                <div class="assignment">
+                                    <span class="coc_title">Assignment:</span>
+                                    <span class="dsf dsf_assignment"></span>
+                                </div>
+                                <div class="personality">
+                                    <span class="coc_title">Personality:</span>
+                                    <span class="dsf dsf_personality"></span>
+                                </div>
+                                <div class="profession">
+                                    <span class="coc_title">Profession:</span>
+                                    <span class="dsf dsf_profession"></span>
+                                </div>
+                                <div class="line_manager">
+                                    <span class="coc_title">Line Manager:</span>
+                                    <span class="dsf dsf_line_manager"></span>
+                                </div>
+                                <div class="supervisors">
+                                    <span class="coc_title">Supervisor(s):</span>
+                                    <span class="dsf dsf_supervisors"></span>
+                                </div>
+                                <div class="wealth">
+                                    <span class="coc_title">Wealth:</span>
+                                    <span class="dsf dsf_wealth"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_page_column">
+                            <div class="column_right">
+                                <div class="age">
+                                    <span class="coc_title">Age:</span>
+                                    <span class="dsf dsf_age"></span>
+                                </div>
+                                <div class="grade">
+                                    <span class="coc_title">Grade:</span>
+                                    <span class="dsf dsf_grade"></span>
+                                </div>
+                                <div class="sex">
+                                    <span class="coc_title">Gender:</span>
+                                    <span class="dsf dsf_sex"></span>
+                                </div>
+                                <div class="born">
+                                    <span class="coc_title">Born:</span>
+                                    <span class="dsf dsf_born"></span>
+                                </div>
+                                <div class="deceased">
+                                    <span class="coc_title">Deceased:</span>
+                                    <span class="dsf dsf_deceased"></span>
+                                </div>
+                                <div class="weight">
+                                    <span class="coc_title">Weight:</span>
+                                    <span class="dsf dsf_weight"></span>
+                                </div>
+                                <div class="height">
+                                    <span class="coc_title">Height:</span>
+                                    <span class="dsf dsf_height"></span>
+                                </div>
+                                <div class="mov">
+                                    <span class="coc_title">MOV:</span>
+                                    <span class="dsf dsf_mov"></span>
+                                </div>
+                                <div class="exp_bonus">
+                                    <span class="coc_title">Exp Bonus:</span>
+                                    <span class="dsf dsf_exp_bonus"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rolls_and_points">
+                        <div class="main_page_column">
+                            <div class="column_left">
+                                <div class="characteristics_rolls coc_main_box">
+                                    <span class="coc_header">Characteristics &amp; Rolls</span>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="coc_title">STR</span>
+                                            <span class="dsf dsf_str"></span>
+                                        </div>
+                                        <div class="widecol">
+                                            <span class="coc_title">Effort</span>
+                                            <span class="dsf dsf_effort"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="coc_title">CON</span>
+                                            <span class="dsf dsf_con"></span>
+                                        </div>
+                                        <div class="widecol">
+                                            <span class="coc_title">Endurance</span>
+                                            <span class="dsf dsf_endurance"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="coc_title">SIZ</span>
+                                            <span class="dsf dsf_siz"></span>
+                                        </div>
+                                        <div class="widecol">
+                                            <span class="coc_title">Damage Bonus</span>
+                                            <span class="dsf dsf_damage_bonus"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="coc_title">INT</span>
+                                            <span class="dsf dsf_int"></span>
+                                        </div>
+                                        <div class="widecol">
+                                            <span class="coc_title">Idea</span>
+                                            <span class="dsf dsf_idea"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="coc_title">DEX</span>
+                                            <span class="dsf dsf_dex"></span>
+                                        </div>
+                                        <div class="widecol">
+                                            <span class="coc_title">Agility</span>
+                                            <span class="dsf dsf_agility"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="coc_title">POW</span>
+                                            <span class="dsf dsf_pow"></span>
+                                        </div>
+                                        <div class="widecol">
+                                            <span class="coc_title">Luck</span>
+                                            <span class="dsf dsf_luck"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="coc_title">CHA</span>
+                                            <span class="dsf dsf_cha"></span>
+                                        </div>
+                                        <div class="widecol">
+                                            <span class="coc_title">Influence</span>
+                                            <span class="dsf dsf_influence"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="coc_title">EDU</span>
+                                            <span class="dsf dsf_edu"></span>
+                                        </div>
+                                        <div class="widecol">
+                                            <span class="coc_title">Know</span>
+                                            <span class="dsf dsf_know"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_page_column">
+                            <div class="column_right">
+                                <div class="points coc_main_box">
+                                    <div class="sanity">
+                                        <span class="coc_header">Sanity</span>
+                                        <div class="sanity_points">
+                                            <div class="current">
+                                                <span class="coc_title">Current:</span>
+                                                <span class="dsf dsf_current_sanity"></span>
+                                            </div>
+                                            <div class="maximum">
+                                                <span class="coc_title">Max:</span>
+                                                <span class="dsf dsf_maximum_sanity"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="magic">
+                                        <span class="coc_header">Magic</span>
+                                        <div class="magic_points">
+                                            <div class="current">
+                                                <span class="coc_title">Current:</span>
+                                                <span class="dsf dsf_current_magic"></span>
+                                            </div>
+                                            <div class="maximum">
+                                                <span class="coc_title">Max:</span>
+                                                <span class="dsf dsf_maximum_magic"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hit">
+                                        <span class="coc_header">Hit Points</span>
+                                        <div class="hit_points">
+                                            <div class="current">
+                                                <span class="coc_title">Current:</span>
+                                                <span class="dsf dsf_current_hitpoints"></span>
+                                            </div>
+                                            <div class="maximum">
+                                                <span class="coc_title">Max:</span>
+                                                <span class="dsf dsf_maximum_hitpoints"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="investigator_skills coc_main_box">
+                        <span class="coc_header">Investigator Skills</span>
+                        <div class="column">
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_appraise_check checkbox"></span>
+                                <span class="skill_name">appraise</span>
+                                <span class="skill_value dsf dsf_skill_appraise"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">art</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_art1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_art1_name"></span>
+                                <span class="skill_value dsf dsf_skill_art1"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_art2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_art2_name"></span>
+                                <span class="skill_value dsf dsf_skill_art2"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_athletics_check checkbox"></span>
+                                <span class="skill_name">athletics</span>
+                                <span class="skill_value dsf dsf_skill_athletics"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_bargain_check checkbox"></span>
+                                <span class="skill_name">bargain</span>
+                                <span class="skill_value dsf dsf_skill_bargain"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_bureaucracy_check checkbox"></span>
+                                <span class="skill_name">bureaucracy</span>
+                                <span class="skill_value dsf dsf_skill_bureaucracy"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_climb_check checkbox"></span>
+                                <span class="skill_name">climb</span>
+                                <span class="skill_value dsf dsf_skill_climb"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">computer use</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_computer_use1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_computer_use1_name"></span>
+                                <span class="skill_value dsf dsf_skill_computer_use1"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_computer_use2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_computer_use2_name"></span>
+                                <span class="skill_value dsf dsf_skill_computer_use2"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_computer_use3_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_computer_use3_name"></span>
+                                <span class="skill_value dsf dsf_skill_computer_use3"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_computer_use4_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_computer_use4_name"></span>
+                                <span class="skill_value dsf dsf_skill_computer_use4"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">craft</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_craft1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_craf1_name"></span>
+                                <span class="skill_value dsf dsf_skill_craft1"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_craft2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_craft2_name"></span>
+                                <span class="skill_value dsf dsf_skill_craft2"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">cthulhu mythos</span>
+                                <span class="skill_value dsf dsf_skill_cthulhu_mythos"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_demolition_check checkbox"></span>
+                                <span class="skill_name">demolition</span>
+                                <span class="skill_value dsf dsf_skill_demolition"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_disguise_check checkbox"></span>
+                                <span class="skill_name">disguise</span>
+                                <span class="skill_value dsf dsf_skill_disguise"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">drive</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_drive1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_drive1_name"></span>
+                                <span class="skill_value dsf dsf_skill_drive1"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_drive2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_drive2_name"></span>
+                                <span class="skill_value dsf dsf_skill_drive2"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_etiquette_check checkbox"></span>
+                                <span class="skill_name">etiquette</span>
+                                <span class="skill_value dsf dsf_skill_etiquette"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_fast_talk_check checkbox"></span>
+                                <span class="skill_name">fast talk</span>
+                                <span class="skill_value dsf dsf_skill_fast_talk"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_fine_manipulation_check checkbox"></span>
+                                <span class="skill_name">fine manipulation</span>
+                                <span class="skill_value dsf dsf_skill_fine_manipulation"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom1_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom1"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom2_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom2"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom3_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom3_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom3"></span>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_first_aid_check checkbox"></span>
+                                <span class="skill_name">first aid</span>
+                                <span class="skill_value dsf dsf_skill_first_aid"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_gaming_check checkbox"></span>
+                                <span class="skill_name">gaming</span>
+                                <span class="skill_value dsf dsf_skill_gaming"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_grapple_check checkbox"></span>
+                                <span class="skill_name">grapple</span>
+                                <span class="skill_value dsf dsf_skill_grapple"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_heavy_machinery_check checkbox"></span>
+                                <span class="skill_name">heavy machinery</span>
+                                <span class="skill_value dsf dsf_skill_heavy_machinery"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_hide_check checkbox"></span>
+                                <span class="skill_name">hide</span>
+                                <span class="skill_value dsf dsf_skill_hide"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_insight_check checkbox"></span>
+                                <span class="skill_name">insight</span>
+                                <span class="skill_value dsf dsf_skill_insight"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_jump_check checkbox"></span>
+                                <span class="skill_name">jump</span>
+                                <span class="skill_value dsf dsf_skill_jump"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">knowledge</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_knowledge_accounting_check checkbox"></span>
+                                <span class="skill_name">accounting</span>
+                                <span class="skill_value dsf dsf_skill_knowledge_accounting"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_knowledge_espionage_check checkbox"></span>
+                                <span class="skill_name">espionage</span>
+                                <span class="skill_value dsf dsf_skill_knowledge_espionage"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_knowledge_law_check checkbox"></span>
+                                <span class="skill_name">law</span>
+                                <span class="skill_value dsf dsf_skill_knowledge_law"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_knowledge_occult_check checkbox"></span>
+                                <span class="skill_name">occult</span>
+                                <span class="skill_value dsf dsf_skill_knowledge_occult"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_knowledge_politics_check checkbox"></span>
+                                <span class="skill_name">politics</span>
+                                <span class="skill_value dsf dsf_skill_knowledge_politics"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_knowledge1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_knowledge1_name"></span>
+                                <span class="skill_value dsf dsf_skill_knowledge1"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">own language</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_own_language_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_own_language_name"></span>
+                                <span class="skill_value dsf dsf_skill_own_language"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">other language</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_other_language1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_other_language1_name"></span>
+                                <span class="skill_value dsf dsf_skill_other_language1"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_other_language2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_other_language2_name"></span>
+                                <span class="skill_value dsf dsf_skill_other_language2"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_listen_check checkbox"></span>
+                                <span class="skill_name">listen</span>
+                                <span class="skill_value dsf dsf_skill_listen"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_medicine_check checkbox"></span>
+                                <span class="skill_name">medicine</span>
+                                <span class="skill_value dsf dsf_skill_medicine"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_navigate_check checkbox"></span>
+                                <span class="skill_name">navigate</span>
+                                <span class="skill_value dsf dsf_skill_navigate"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_perform_check checkbox"></span>
+                                <span class="skill_name">perform</span>
+                                <span class="skill_value dsf dsf_skill_perform"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_persuade_check checkbox"></span>
+                                <span class="skill_name">persuade</span>
+                                <span class="skill_value dsf dsf_skill_persuade"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_pharmacy_check checkbox"></span>
+                                <span class="skill_name">pharmacy</span>
+                                <span class="skill_value dsf dsf_skill_pharmacy"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">pilot</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_pilot1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_pilot1_name"></span>
+                                <span class="skill_value dsf dsf_skill_pilot1"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_pilot2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_pilot2_name"></span>
+                                <span class="skill_value dsf dsf_skill_pilot2"></span>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_psychotherapy_check checkbox"></span>
+                                <span class="skill_name">psychotherapy</span>
+                                <span class="skill_value dsf dsf_skill_psychotherapy"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">repair</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_repair1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_repair1_name"></span>
+                                <span class="skill_value dsf dsf_skill_repair1"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_repair2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_repair2_name"></span>
+                                <span class="skill_value dsf dsf_skill_repair2"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_repair3_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_repair3_name"></span>
+                                <span class="skill_value dsf dsf_skill_repair3"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_research_check checkbox"></span>
+                                <span class="skill_name">research</span>
+                                <span class="skill_value dsf dsf_skill_research"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_ride_check checkbox"></span>
+                                <span class="skill_name">ride</span>
+                                <span class="skill_value dsf dsf_skill_ride"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">science</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_science1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_science1_name"></span>
+                                <span class="skill_value dsf dsf_skill_science1"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_science2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_science2_name"></span>
+                                <span class="skill_value dsf dsf_skill_science2"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_science3_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_science3_name"></span>
+                                <span class="skill_value dsf dsf_skill_science3"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_sense_check checkbox"></span>
+                                <span class="skill_name">sense</span>
+                                <span class="skill_value dsf dsf_skill_sense"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_sleight_of_hand_check checkbox"></span>
+                                <span class="skill_name">sleight of hand</span>
+                                <span class="skill_value dsf dsf_skill_sleight_of_hand"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">sorcery</span>
+                                <span class="skill_value dsf dsf_skill_sorcery"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_spot_check checkbox"></span>
+                                <span class="skill_name">spot</span>
+                                <span class="skill_value dsf dsf_skill_spot"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">status</span>
+                                <span class="skill_value dsf dsf_skill_status"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_stealth_check checkbox"></span>
+                                <span class="skill_name">stealth</span>
+                                <span class="skill_value dsf dsf_skill_stealth"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_strategy_check checkbox"></span>
+                                <span class="skill_name">strategy</span>
+                                <span class="skill_value dsf dsf_skill_strategy"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_swim_check checkbox"></span>
+                                <span class="skill_name">swim</span>
+                                <span class="skill_value dsf dsf_skill_swim"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_teach_check checkbox"></span>
+                                <span class="skill_name">teach</span>
+                                <span class="skill_value dsf dsf_skill_teach"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check">&nbsp;</span>
+                                <span class="skill_name">technology use</span>
+                                <span class="skill_value">&nbsp;</span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_technology_use1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_technology_use1_name"></span>
+                                <span class="skill_value dsf dsf_skill_technology_use1"></span>
+                            </div>
+                            <div class="coc_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_technology_use2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_technology_use2_name"></span>
+                                <span class="skill_value dsf dsf_skill_technology_use2"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_track_check checkbox"></span>
+                                <span class="skill_name">track</span>
+                                <span class="skill_value dsf dsf_skill_track"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom4_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom4_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom4"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom5_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom5_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom5"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom6_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom6_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom6"></span>
+                            </div>
+                            <div class="coc_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom7_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom7_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom7"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weapons coc_main_box">
+                    <span class="coc_header">Weapons</span>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check weapons_header">&nbsp;</span>
+                        <span class="weapons_name weapons_header">name</span>
+                        <span class="weapons_percent weapons_header">%</span>
+                        <span class="weapons_damage weapons_header">damage</span>
+                        <span class="weapons_malfunction weapons_header">malf</span>
+                        <span class="weapons_hands weapons_header">hnd</span>
+                        <span class="weapons_range weapons_header">rng</span>
+                        <span class="weapons_num_attack weapons_header">#att</span>
+                        <span class="weapons_shots weapons_header">shots</span>
+                        <span class="weapons_hitpoints weapons_header">hp</span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon1_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon1_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon1_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon1_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon1_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon1_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon1_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon1_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon1_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon1_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon2_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon2_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon2_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon2_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon2_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon2_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon2_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon2_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon2_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon2_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon3_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon3_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon3_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon3_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon3_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon3_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon3_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon3_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon3_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon3_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon4_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon4_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon4_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon4_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon4_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon4_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon4_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon4_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon4_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon4_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon5_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon5_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon5_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon5_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon5_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon5_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon5_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon5_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon5_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon5_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon6_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon6_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon6_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon6_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon6_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon6_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon6_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon6_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon6_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon6_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon7_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon7_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon7_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon7_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon7_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon7_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon7_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon7_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon7_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon7_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon8_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon8_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon8_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon8_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon8_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon8_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon8_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon8_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon8_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon8_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon9_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon9_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon9_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon9_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon9_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon9_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon9_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon9_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon9_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon9_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon10_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon10_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon10_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon10_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon10_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon10_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon10_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon10_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon10_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon10_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon11_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon11_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon11_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon11_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon11_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon11_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon11_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon11_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon11_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon11_hitpoints"></span>
+                    </div>
+                    <div class="coc_weapons_item">
+                        <span class="weapons_check dsf dsf_weapon12_check checkbox"></span>
+                        <span class="weapons_name dsf dsf_weapon12_name"></span>
+                        <span class="weapons_percent dsf dsf_weapon12_percent"></span>
+                        <span class="weapons_damage dsf dsf_weapon12_damage"></span>
+                        <span class="weapons_malfunction dsf dsf_weapon12_malfunction"></span>
+                        <span class="weapons_hands dsf dsf_weapon12_hands"></span>
+                        <span class="weapons_range dsf dsf_weapon12_range"></span>
+                        <span class="weapons_num_attack dsf dsf_weapon12_num_attack"></span>
+                        <span class="weapons_shots dsf dsf_weapon12_shots"></span>
+                        <span class="weapons_hitpoints dsf dsf_weapon12_hitpoints"></span>
+                    </div>
+                </div>
+                <div class="page_marker">
+                    <hr />
+                </div>
+                <div class="personal_data coc_main_box">
+                    <span class="coc_header">Personal Data</span>
+                    <div class="name">
+                        <span class="coc_title">Investigator Name:</span>
+                        <span class="dsf dsf_name"></span>
+                    </div>
+                    <div class="residence">
+                        <span class="coc_title">Residence:</span>
+                        <span class="dsf dsf_residence"></span>
+                    </div>
+                    <div class="quick_description">
+                        <span class="coc_title">Personal Description:</span>
+                        <span class="dsf dsf_personal_description"></span>
+                    </div>
+                    <div class="family_friends">
+                        <span class="coc_title">Family &amp; Friends:</span>
+                        <span class="dsf dsf_family_friends"></span>
+                    </div>
+                    <div class="insanity_episodes">
+                        <span class="coc_title">Episodes of Insanity:</span>
+                        <span class="dsf dsf_insanity_episodes"></span>
+                    </div>
+                    <div class="wounds_injuries">
+                        <span class="coc_title">Wounds &amp; Injuries:</span>
+                        <span class="dsf dsf_wounds_injuries"></span>
+                    </div>
+                    <div class="marks_scars">
+                        <span class="coc_title">Marks &amp; Scars:</span>
+                        <span class="dsf dsf_marks_scars"></span>
+                    </div>
+                </div>
+                <div class="investigator_history coc_main_box">
+                    <span class="coc_header">Investigator History</span>
+                    <div class="internals">
+                        <span class="dsf dsf_bio"></span>
+                    </div>
+                </div>
+                <div class="bottom_page_2">
+                    <div class="main_page_column">
+                        <div class="column_left">
+                            <div class="income_savings coc_main_box">
+                                <span class="coc_header">Income &amp; Savings</span>
+                                <div class="income">
+                                    <span class="coc_title">Income:</span>
+                                    <span class="dsf dsf_income"></span>
+                                </div>
+                                <div class="cash_on_hand">
+                                    <span class="coc_title">Cash on Hand:</span>
+                                    <span class="dsf dsf_cash_on_hand"></span>
+                                </div>
+                                <div class="savings">
+                                    <span class="coc_title">Savings:</span>
+                                    <span class="dsf dsf_savings"></span>
+                                </div>
+                                <div class="personal_property">
+                                    <span class="coc_title">Personal Property:</span>
+                                    <span class="dsf dsf_personal_property"></span>
+                                </div>
+                                <div class="real_estate">
+                                    <span class="coc_title">Real Estate</span>
+                                    <span class="dsf dsf_real_estate"></span>
+                                </div>
+                            </div>
+                            <div class="mythos_tomes_read coc_main_box">
+                                <span class="coc_header">Mythos Tomes Read</span>
+                                <div class="internals">
+                                    <span class="dsf dsf_mythos_tomes_read"></span>
+                                </div>
+                            </div>
+                            <div class="artifacts_spells coc_main_box">
+                                <span class="coc_header">Magical Artifacts / Spells Known</span>
+                                <div class="magical_artifacts">
+                                    <span class="artifacts_spells_subheader">Artifacts</span>
+                                    <span class="dsf dsf_magical_artifcats"></span>
+                                </div>
+                                <div class="spells_known">
+                                    <span class="artifacts_spells_subheader">Spells</span>
+                                    <span class="dsf dsf_spells_known"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main_page_column">
+                        <div class="column_right">
+                            <div class="adventuring_gear_possessions coc_main_box">
+                                <span class="coc_header">Adventuring Gear &amp; Possessions</span>
+                                <div class="internals">
+                                    <span class="dsf dsf_adventuring_gear_possessions"></span>
+                                </div>
+                            </div>
+                            <div class="monster_history coc_main_box">
+                                <span class="coc_header">Monster History</span>
+                                <div class="internals">
+                                    <span class="dsf dsf_monster_history"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      <!-- End HTML Template - Don't copy anything below here into the template! -->
+    </div> <!-- ds_minimal4e -->
+  </div> <!-- dynamic_sheet_container -->
+  <br/><br/>
+  
+  <button id="character-save-button">Save</button>
+  <br/>
+  <p>
+    Right here is a hidden &lt;div&gt; that holds the data values that will be saved to the server. Click the save button and then examine the DOM (using Firebug) to see what will be sent.
+  </p>
+  <div id="dynamic_sheet_values" style="display:none;"></div>
+</body>
+</html>
