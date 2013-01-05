@@ -2,6 +2,10 @@
 * This is the javascript specific to the laundry DST
 */
 
+// Global Storage
+laundry_context = {};
+var $ = jQuery
+
 var laundry_default_values = {
 
     "cthulhu_sanity": "99",
@@ -112,13 +116,8 @@ var laundry_default_values = {
 
 };
 
-// Make sure that the sidebar is the same height as the main
-// page split. This has to be done once all of the values are filled
-// in to the page. So, doing this on the Post Load event is just a
-// little bit too soon.
-jQuery(document).ready(laundry_resizeSidebar);
-
-function laundry_dataPreLoad(options) {
+function laundry_dataPreLoad(opts) {
+    $.fn.editable.defaults['onblur'] = 'submit';
 
     aisleten.characters.jeditablePlaceholder = "__";
 
@@ -136,7 +135,15 @@ function laundry_dataPreLoad(options) {
     dynamic_sheet_attrs = tempData;
 }
 
-function laundry_dataPostLoad(options) {
+function laundry_dataPostLoad(opts) {
+
+    var containerId = "#" + opts['containerId'];
+    laundry_context = document.getElementById(opts['containerId']);
+    opts['context'] = document.getElementById(opts['containerId']);
+
+    //Convert interface elements
+    laundry_convertAreas(opts);
+
 
     // Modify the image attributes so that it is scaled to fit inside
     // the pre-allocated space on the character sheet
@@ -149,113 +156,63 @@ function laundry_dataPostLoad(options) {
     } else {
         jQuery(avatarImgActual).css("height", "100%");
     }
+    laundry_derivedStats();
+    laundry_calculateSanity();
 }
 
-function laundry_dataChange(options) {
+function laundry_dataChange(opts) {
 
-    var field = options['fieldName'];
-    var val = options['fieldValue'];
+    var field = opts['fieldName'];
+    var val = opts['fieldValue'];
 
     if (field.indexOf("skill") != -1) {
         if (field == 'skill_cthulhu_mythos') {
-            laundry_updateCthulhuMythos(val);
+            laundry_calculateSanity(val);
         }
     } else {
-        if (field == 'str') {
-            laundry_updateStrength(val);
-        } else if (field == 'con') {
-            laundry_updateConstitution(val);
-        } else if (field == 'siz') {
-            laundry_updateSize();
-        } else if (field == 'int') {
-            laundry_updateIntelligence(val);
-        } else if (field == 'dex') {
-            laundry_updateDexterity(val);
-        } else if (field == 'pow') {
-            laundry_updatePower(val);
-        } else if (field == 'cha') {
-            laundry_updateCharisma(val);
-        } else if (field == 'edu') {
-            laundry_updateEducation(val);
-        }
+        laundry_derivedStats();
     }
 
-    laundry_resizeSidebar();
 }
 
-function laundry_dataPreSave(options) {
-    // Called just before the data is saved to the server.
+function laundry_dataPreSave(opts) {
+    opts['context'] = document.getElementById(opts['containerId']);
+    laundry_unconvertAreas(opts);
+    var containerId = "#" + opts['containerId'];
 }
 
-function laundry_updateStrength(strength) {
+function laundry_derivedStats() {
     laundry_calculateDamageBonus();
-    var score = parseInt(strength);
-    if (isNaN(score)) score == 0;
-    var effort = Math.min(score * 5, 99);
+    laundry_calculateHP();
+    var strength = laundry_getInt(jQuery('.dsf_str').html());
+    var constitution = laundry_getInt(jQuery('.dsf_con').html());
+    var size = laundry_getInt(jQuery('.dsf_siz').html());
+    var intelligence = laundry_getInt(jQuery('.dsf_int').html());
+    var dexterity = laundry_getInt(jQuery('.dsf_dex').html());
+    var power = laundry_getInt(jQuery('.dsf_pow').html());
+    var charisma = laundry_getInt(jQuery('.dsf_cha').html());
+    var education = laundry_getInt(jQuery('.dsf_edu').html());
+
+    var effort = Math.min(strength * 5, 99);
     jQuery('.dsf_effort').html(effort);
-}
-
-function laundry_updateConstitution(constitution) {
-    laundry_calculateHP();
-    var score = parseInt(constitution);
-    if (isNaN(score)) score == 0;
-    var endurance = Math.min(score * 5, 99);
+    var endurance = Math.min(constitution * 5, 99);
     jQuery('.dsf_endurance').html(endurance);
-}
-
-function laundry_updateSize(size) {
-    laundry_calculateDamageBonus();
-    laundry_calculateHP();
-}
-
-function laundry_updateIntelligence(intelligence) {
-    var score = parseInt(intelligence);
-    if (isNaN(score)) score = 0;
-
-    var idea = Math.min(score * 5, 99);
+    var idea = Math.min(intelligence * 5, 99);
     jQuery('.dsf_idea').html(idea);
-}
-
-function laundry_updateDexterity(dexterity) {
-    var score = parseInt(dexterity);
-    if (isNaN(score)) score == 0;
-
+    var exp_bonus = Math.ceil(intelligence/2);
+    jQuery('.dsf_exp_bonus').html(exp_bonus);
+    var agility = Math.min(dexterity * 5, 99);
+    jQuery('.dsf_agility').html(agility);
     var dodge = parseInt(jQuery('.dsf_skill_dodge').html());
-    if (isNaN(dodge) || dodge < (score * 2)) {
-        dodge = score * 2;
+    if (isNaN(dodge) || dodge < (dexterity * 2)) {
+        dodge = dexterity * 2;
         jQuery('.dsf_skill_dodge').html(dodge);
     }
-    var agility = Math.min(score * 5, 99);
-    jQuery('.dsf_agility').html(agility);
-}
-
-function laundry_updatePower(power) {
-    var score = parseInt(power);
-    if (isNaN(score)) score = 0;
-
-    var luck = Math.min(score * 5, 99);
+    var luck = Math.min(power * 5, 99);
     jQuery('.dsf_luck').html(luck);
-
-    var san = luck;
-    jQuery('.dsf_san').html(san);
-
-    laundry_calculateMaximumSanity();
-    laundry_calculateMaximumMagic();
-}
-
-function laundry_updateCharisma(charisma) {
-    var score = parseInt(charisma);
-    if (isNaN(score)) score = 0;
-
-    var influence = Math.min(score * 5, 99);
+    var influence = Math.min(charisma * 5, 99);
     jQuery('.dsf_influence').html(influence);
-}
-
-function laundry_updateEducation(education) {
-    var score = parseInt(education);
-    if (isNaN(score)) score = 0;
-
-    var know = Math.min(score * 5, 99);
+    var know = Math.min(education * 5, 99);
     jQuery('.dsf_know').html(know);
 
     var ownLanguage = parseInt(jQuery('.dsf_skill_own_language').html());
@@ -263,17 +220,15 @@ function laundry_updateEducation(education) {
         ownLanguage = know;
         jQuery('.dsf_skill_own_language').html(ownLanguage);
     }
+    laundry_calculateSanity();
 }
 
-function laundry_updateCthulhuMythos(cthulhuMythosValue) {
-    var score = parseInt(cthulhuMythosValue);
+function laundry_getInt(val) {
+    var score = parseInt(val);
     if (isNaN(score)) score = 0;
-
-    var cthulhuSanity = 99 - score;
-    jQuery('.dsf_cthulhu_sanity').html(cthulhuSanity);
-
-    laundry_calculateMaximumSanity();
+    return score;
 }
+
 
 function laundry_calculateDamageBonus()
 {
@@ -303,30 +258,23 @@ function laundry_calculateDamageBonus()
     jQuery('.dsf_damage_bonus').html(bonusText);
 }
 
-function laundry_calculateMaximumSanity() {
-    var cthulhuSanity = parseInt(jQuery('.dsf_cthulhu_sanity').html());
+function laundry_calculateSanity() {
+    var score = laundry_getInt(jQuery('.dsf_skill_cthulhu_mythos').html());
+
+    var cthulhuSanity = 99 - score;
     var luck = Math.min(parseInt(jQuery('.dsf_pow').html()) * 5, 99);
 
     var maxSanity = Math.min(cthulhuSanity, luck);
     if (!isNaN(maxSanity)) {
         jQuery('.dsf_maximum_sanity').html(maxSanity);
 
+        var initialSanity = parseInt(jQuery('.dsf_initial_sanity').html());
+        if (isNaN(initialSanity)) {
+            jQuery('.dsf_initial_sanity').html(luck);
+        }
         var currentSanity = parseInt(jQuery('.dsf_current_sanity').html());
         if (isNaN(currentSanity)) {
             jQuery('.dsf_current_sanity').html(maxSanity);
-        }
-    }
-}
-
-function laundry_calculateMaximumMagic() {
-    var score = parseInt(jQuery('.dsf_pow').html());
-    
-    if (!isNaN(score)) {
-        jQuery('.dsf_maximum_magic').html(score);
-
-        var currentMagic = parseInt(jQuery('.dsf_current_magic').html());
-        if (isNaN(currentMagic)) {
-            jQuery('.dsf_current_magic').html(score);
         }
     }
 }
@@ -336,9 +284,10 @@ function laundry_calculateHP() {
     var siz = parseInt(jQuery('.dsf_siz').html());
 
     var hp = Math.ceil((con + siz) / 2);
+    var majorwound = Math.ceil(hp / 2);
     if (!isNaN(hp)) {
         jQuery('.dsf_maximum_hitpoints').html(hp);
-
+        jQuery('.dsf_major_wound').html(majorwound);
         var currentHP = parseInt(jQuery('.dsf_current_hitpoints').html());
         if (isNaN(currentHP)) {
             jQuery('.dsf_current_hitpoints').html(hp);
@@ -346,51 +295,202 @@ function laundry_calculateHP() {
     }
 }
 
-function laundry_resizeSidebar() {
-    var page1split = jQuery('.coc_page1_split');
-    var page1splitHeight = page1split.height() + 'px';
 
-    jQuery('.coc_sidebar').css("height", page1splitHeight);
+function laundry_area(oElement,opts){
+
+    // Store opts
+    oElement.setAttribute('optsIsEditable',opts['isEditable']);
+    oElement.setAttribute('optsDebugThreshold',opts['debugThreshold']);
+
+    // Attaches edit events to area text
+    oElement.activate = function(){
+
+        // Don't activate the element if we're not in edit mode
+        if (this.getAttribute('optsIsEditable') != 'true') return;
+
+        // Activate the element
+        oElement.onclick = this.edit;
+
+        // Add default value
+        if (this.innerHTML == '') this.innerHTML = aisleten.characters.jeditablePlaceholder;
+
+        // Set the element's alt text
+        this.title = 'Edit';
+
+        // Set the cursor for the item
+        this.style.cursor = 'pointer';
+
+    };
+
+    // Converts the element to an editable area
+    oElement.edit = function(){
+
+        // Abort click function if we just clicked submit
+        if(this.getAttribute('eventLock') == 'locked'){
+            this.setAttribute('eventLock',null);
+            return;
+        }
+
+        // Force submit any other area in the context
+        var aAreas = laundry_getElementsByClassName('area','span');
+        for (var i = 0; i < aAreas.length; i++){
+            if (aAreas[i].getAttribute('status') == 'editing') aAreas[i].submit();
+        }
+
+        // Set the editing flag
+        this.setAttribute('status','editing');
+
+        // Disable click functionality
+        this.onclick = null;
+
+        // Set cursor
+        this.style.cursor = 'text';
+
+        // Remove default
+        if (this.innerHTML == aisleten.characters.jeditablePlaceholder) this.innerHTML = '';
+
+        // Convert <br /> tags to line breaks
+        var sText = this.innerHTML.replace(/<br>/g,'\n');
+
+        // Select dimensions and classes
+        var iWidth = this.offsetWidth + parseInt(this.getAttribute('widthMod'));
+        var iHeight = this.offsetHeight + parseInt(this.getAttribute('heightMod')) + 60;
+        var sClasses = this.getAttribute('areaClasses');
+
+        // Convert content into form with button
+        this.innerHTML = '<textarea class=laundry_textarea "' + sClasses + '" style="width:' + iWidth + 'px;height:' + iHeight + 'px;">' + sText + '</textarea>';
+
+        var focusRef = function(){$('.laundry_textarea').focus();};
+        var submitRef = function(){$('.laundry_textarea').parent().submit();};
+        var unfocusRef = function(){$('.laundry_textarea').blur(submitRef)};
+
+        this.focusTimeout = setTimeout(focusRef,50);
+        this.unfocusTimeout = setTimeout(unfocusRef,60);
+    };
+
+    // Converts the edit box back into regular text form
+    oElement.submit = function(){
+
+        // Get the data from the edit box
+        var sContent = this.getElementsByTagName('textarea')[0].value.replace(/\n/g,'<br>');
+
+        // Remove the form elements
+        this.innerHTML = sContent;
+
+        // Reapply the default value if needed
+        if (this.innerHTML == '') this.innerHTML = aisleten.characters.jeditablePlaceholder;
+
+        // Lock out the click event until we're done
+        this.setAttribute('eventLock','locked');
+
+        // Automatically unlock after a twentieth of a second
+        var submitRef = function(){oElement.setAttribute('eventLock',null);};
+        this.timeout = setTimeout(submitRef,50);
+
+        // Set pointer
+        this.style.cursor = 'pointer';
+
+        // Reattach the click functionality
+        this.onclick = this.edit;
+
+        // Reset the editing flag
+        this.setAttribute('status',null);
+
+        // Call the onUpdate event
+        this.onUpdate();
+
+    };
+
+    // On Update event function, typicaly overriden
+    oElement.onUpdate = function(){
+
+    }
+
+    // Error handling function - alerts on errors if bug reporting is on
+    oElement.error = function(iImportance,sText){
+        if (this.getAttribute('optsDebugThreshold')) var iThreshold = this.getAttribute('debugThreshold');
+        else iThreshold = 0;
+        if (iImportance < iThreshold){
+            alert(sText);
+        }
+    }
+
+    // Return the element for ease of refference
+    return oElement;
+
 }
 
-function laundry_yearChanged(yearSelect) {
-    var year = yearSelect.options[yearSelect.selectedIndex].value;
-    jQuery('.dsf_year').html(year);
+// Converts all properly classed divs in the context to areas
+function laundry_convertAreas(opts){
 
-    laundry_showCorrectSkillPage(year);
+    // Find all the spans on the page with "area" in their class name
+    if (opts['context']) var aSpans = opts['context'].getElementsByTagName('span');
+    else var aSpans = document.getElementsByTagName('span');
+
+    var taTemp = {};
+    for (var i = 0; i < aSpans.length; i++){
+        if (aSpans[i].className.match(/area/)){
+
+            // Convert each element to a full featured area object
+            taTemp = laundry_area(aSpans[i],opts);
+            taTemp.activate();
+
+            // Load up custom parameters and such depending on class
+            if (aSpans[i].className.match('is_tooltip')){
+                taTemp.setAttribute('widthMod',-9);
+                taTemp.setAttribute('heightMod',-9);
+                taTemp.setAttribute('areaClasses','area tip_area');
+                taTemp.onUpdate = function(){
+                    oParent = this.parentNode;
+                    oParent.setAttribute("editLock","unlocked");
+                    oParent.mouseOut();
+                };
+            }
+            else{
+                taTemp.setAttribute('widthMod',-23);
+                taTemp.setAttribute('heightMod',-6);
+                taTemp.setAttribute('areaClasses','area');
+            }
+
+        }
+    }
+
 }
 
-function laundry_showCorrectSkillPage(year) {
-    var skill1890 = '.coc_year_1890';
-    var skill1920 = '.coc_year_1920';
-    var skillPresent = '.coc_year_present';
-    var skillYear = '.coc_year_' + year;
+// Sets the necesary class name on areas for them to be saved
+function laundry_unconvertAreas(opts){
 
-    jQuery(skill1890).addClass('coc_hidden');
-    jQuery(skill1920).addClass('coc_hidden');
-    jQuery(skillPresent).addClass('coc_hidden');
-    jQuery(skillYear).removeClass('coc_hidden');
+    // Find all the spans on the page with "area" in their class name
+    if (opts['context']) var aSpans = opts['context'].getElementsByTagName('span');
+    else var aSpans = document.getElementsByTagName('span');
 
-    var range1_1890 = 30;
-    var range1_1920 = 30;
-    var range1_present = 28;
-    var range2_1890 = 61;
-    var range2_1920 = 59;
-    var range2_present = 57;
+    // Add the necesary save key to the class name
+    // Also close out any active edit boxes
+    for (var i = 0; i < aSpans.length; i++){
+        if (aSpans[i].className.match(/area/)){
+            //if (aSpans[i].innerHTML.match(/textarea/)) aSpans[i].submit();
+            if (aSpans[i].innerHTML == aisleten.characters.jeditablePlaceholder) aSpans[i].innerHTML = '';
+        }
+    }
+}
 
-    var range1lt = (year == '1920') ? range1_1920 : (year == 'present') ? range1_present : range1_1890;
-    var range2lt = (year == '1920') ? range2_1920 : (year == 'present') ? range2_present : range2_1890;
 
-    var wrapDiv = '<div class="column"></div>';
-    var avatarImageDiv = '<div class="coc_character_image">';
-    avatarImageDiv += jQuery('.coc_character_image').html();
-    avatarImageDiv += '</div>';
+////////////////////////////////////////////////////////
+// General Utility Functions :: Credit to ChainsawXIV //
+////////////////////////////////////////////////////////
 
-    jQuery('.coc_character_image').remove();
-    jQuery('.coc_skill_item').unwrap();
-    jQuery('.coc_skill_item').slice(0, range1lt).wrapAll(wrapDiv);
-    jQuery('.coc_skill_item').slice(range1lt, range2lt).wrapAll(wrapDiv);
-    jQuery('.coc_skill_item').slice(range2lt).wrapAll(wrapDiv);
-    jQuery('.coc_skill_item').slice(range2lt, range2lt + 1).before(avatarImageDiv);
+// Gets an array of elements with a particular class from the context
+function laundry_getElementsByClassName(sClassName,sElementType){
+
+    // Provide default element type
+    if (!sElementType) sElementType = 'div';
+
+    var aList = new Array();
+    var aDivs = laundry_context.getElementsByTagName(sElementType);
+    for (var i = 0; i < aDivs.length; i++){
+        if (aDivs[i].className.match(sClassName)) aList[aList.length] = aDivs[i];
+    }
+    return aList;
+
 }
 

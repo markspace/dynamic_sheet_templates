@@ -7,7 +7,7 @@
     width: 700px;
 }
 
-.ds_laundry .coc_main_box
+.ds_laundry .laundry_main_box
 {
     border-width: 1px;
     border-color: black;
@@ -17,13 +17,13 @@
     margin-bottom: 6px;
 }
 
-.ds_laundry .coc_title
+.ds_laundry .laundry_title
 {
     font-weight: bold;
     clear: left;
 }
 
-.ds_laundry .coc_header
+.ds_laundry .laundry_header
 {
     width: 100%;
     font-size: 125%;
@@ -35,7 +35,7 @@
     margin-bottom: .25em;
 }
 
-.ds_laundry .coc_hidden
+.ds_laundry .laundry_hidden
 {
     display: none;
     visibility: hidden;
@@ -63,7 +63,7 @@
     padding-left: 3px;
 }
 
-.ds_laundry .bottom_page_2
+.ds_laundry .top_page_2
 {
     overflow: auto;
 }
@@ -71,7 +71,7 @@
 /****************************
 * Left Sidebar / Header
 *****************************/
-.ds_laundry .coc_sidebar
+.ds_laundry .laundry_sidebar
 {
     width: 5em;
     height: 50em;
@@ -82,7 +82,7 @@
     margin-right: 6px;
 }
 
-.ds_laundry .coc_year
+.ds_laundry .laundry_year
 {
     background-color: black;
     color: white;
@@ -91,7 +91,7 @@
     text-align: center;
 }
 
-.ds_laundry .coc_year_select
+.ds_laundry .laundry_year_select
 {
     font-size: 100%;
     font-weight: normal;
@@ -105,7 +105,7 @@
     margin: 0px;
 }
 
-.ds_laundry .coc_sidebar .rotate_neg_90
+.ds_laundry .laundry_sidebar .rotate_neg_90
 {
     border-width: 0px;
     border-style: solid;
@@ -128,19 +128,19 @@
     -moz-transform-origin: 0% 0%;
 }
 
-.ds_laundry .coc_gametitle
+.ds_laundry .laundry_gametitle
 {
     float: left;
     width: 25em;
 }
 
-.ds_laundry .coc_gametitle .coc_gametitle
+.ds_laundry .laundry_gametitle .laundry_gametitle
 {
     font-size: 200%;
     font-weight: bold;
 }
 
-.ds_laundry .coc_gametitle .author
+.ds_laundry .laundry_gametitle .author
 {
     font-size: 75%;
 }
@@ -155,7 +155,7 @@
     margin-top: 0.5em;
 }
 
-.ds_laundry .coc_sidebar a
+.ds_laundry .laundry_sidebar a
 {
     text-decoration: none;
 }
@@ -163,7 +163,7 @@
 /****************************
 * Character Info
 *****************************/
-.ds_laundry .character_info .coc_title 
+.ds_laundry .character_info .laundry_title 
 {
     float: left;
     padding-right: 6px;
@@ -218,13 +218,13 @@
     width: 30%;
 }
 
-.ds_laundry .characteristics_rolls .coc_title
+.ds_laundry .characteristics_rolls .laundry_title
 {
     float: left;
     width: 3.1em;
 }
 
-.ds_laundry .characteristics_rolls .widecol .coc_title
+.ds_laundry .characteristics_rolls .widecol .laundry_title
 {
     float: left;
     width: 10em;
@@ -280,7 +280,7 @@
     width: 33.33%;
 }
 
-.ds_laundry .points .coc_title
+.ds_laundry .points .laundry_title
 {
     float: left;
     width: 75%;
@@ -296,12 +296,12 @@
     position: relative;
 }
 
-.ds_laundry .investigator_skills .coc_skill_item
+.ds_laundry .investigator_skills .laundry_skill_item
 {
     clear: left;
 }
 
-.ds_laundry .investigator_skills .coc_sub_skill_item
+.ds_laundry .investigator_skills .laundry_sub_skill_item
 {
     clear: left;
 }
@@ -320,7 +320,7 @@
     width: 10em;
 }
 
-.ds_laundry .investigator_skills .coc_sub_skill_item .skill_name
+.ds_laundry .investigator_skills .laundry_sub_skill_item .skill_name
 {
     text-transform: capitalize;
     float: left;
@@ -342,7 +342,7 @@
     text-transform: capitalize;
 }
 
-.ds_laundry .coc_character_image
+.ds_laundry .laundry_character_image
 {
     width: 12em;
     height: 12em;
@@ -365,7 +365,7 @@
 /****************************
 * Weapons
 *****************************/
-.ds_laundry .coc_weapons_item 
+.ds_laundry .laundry_weapons_item 
 {
     clear: left;
 }
@@ -439,7 +439,7 @@
 /****************************
 * Personal Data
 *****************************/
-.ds_laundry .personal_data .coc_title
+.ds_laundry .personal_data .laundry_title
 {
     float: left;
     margin-right: 6px;
@@ -454,7 +454,7 @@
 /****************************
 * Income and Savings
 *****************************/
-.ds_laundry .income_savings .coc_title
+.ds_laundry .income_savings .laundry_title
 {
     float: left;
     margin-right: 6px;
