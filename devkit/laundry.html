@@ -13,6 +13,7 @@
   <script type="text/javascript" src="laundry_example.js"></script>
   
   <!-- Load the CSS for the DST, replace with your own! -->
+<!--<link href="print.css" media="print" rel="stylesheet" type="text/css" />-->
 
   <link href="dynamic_sheets/laundry/sheet.css" rel="stylesheet" type="text/css" />
   <!-- <link href="dynamic_sheets/laundry/sheet.css" media="screen" rel="stylesheet" type="text/css" /> -->
@@ -43,18 +44,11 @@
 
             <div class="content">
                 <div class="laundry_page1_split">
-                    <!--        <div class="laundry_gametitle">
-                                <span class="laundry_gametitle">Call of Cthulhu</span>
-                                <div class="author">
-                                    <span class="">DST Author:</span>
-                                    <span class="dsf dsf_dst_author"></span>
-                                </div>
-                            </div>-->
-                    <div class="character_info laundry_main_box">
-                        <span class="laundry_header">Capital Laundry Services</span>
-                        <span class="laundry_header">Personnel Record</span>
-                        <div class="main_page_column">
-                            <div class="column_left">
+                    <div class="laundry_character_info laundry_main_box">
+                        <span class="laundry_mast">LAUNDRY</span>
+                        <span class="laundry_mast_right">PERSONNEL RECORD</span>
+                        <div class="laundry_main_page_column">
+                            <div class="laundry_column_left">
                                 <div class="name">
                                     <span class="laundry_title">Name:</span>
                                     <span class="dsf dsf_name"></span>
@@ -62,10 +56,6 @@
                                 <div class="player">
                                     <span class="laundry_title">Player:</span>
                                     <span class="dsf dsf_player"></span>
-                                </div>
-                                <div class="campaign">
-                                    <span class="laundry_title">Campaign:</span>
-                                    <span class="dsf dsf_campaign"></span>
                                 </div>
                                 <div class="position">
                                     <span class="laundry_title">Position:</span>
@@ -97,41 +87,41 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="main_page_column">
-                            <div class="column_right">
-                                <div class="age">
+                        <div class="laundry_main_page_column">
+                            <div class="laundry_column_right">
+                                <div class="laundry_age">
                                     <span class="laundry_title">Age:</span>
                                     <span class="dsf dsf_age"></span>
                                 </div>
-                                <div class="grade">
+                                <div class="laundry_grade">
                                     <span class="laundry_title">Grade:</span>
                                     <span class="dsf dsf_grade"></span>
                                 </div>
-                                <div class="sex">
+                                <div class="laundry_sex">
                                     <span class="laundry_title">Gender:</span>
                                     <span class="dsf dsf_sex"></span>
                                 </div>
-                                <div class="born">
+                                <div class="laundry_born">
                                     <span class="laundry_title">Born:</span>
                                     <span class="dsf dsf_born"></span>
                                 </div>
-                                <div class="deceased">
+                                <div class="laundry_deceased">
                                     <span class="laundry_title">Deceased:</span>
                                     <span class="dsf dsf_deceased"></span>
                                 </div>
-                                <div class="weight">
+                                <div class="laundry_weight">
                                     <span class="laundry_title">Weight:</span>
                                     <span class="dsf dsf_weight"></span>
                                 </div>
-                                <div class="height">
+                                <div class="laundry_height">
                                     <span class="laundry_title">Height:</span>
                                     <span class="dsf dsf_height"></span>
                                 </div>
-                                <div class="mov">
+                                <div class="laundry_mov">
                                     <span class="laundry_title">MOV:</span>
                                     <span class="dsf dsf_mov"></span>
                                 </div>
-                                <div class="exp_bonus">
+                                <div class="laundry_exp_bonus">
                                     <span class="laundry_title">Exp Bonus:</span>
                                     <span class="dsf dsf_exp_bonus readonly"></span>
                                 </div>
@@ -139,10 +129,10 @@
                         </div>
                     </div>
                     <div class="rolls_and_points">
-                        <div class="main_page_column">
-                            <div class="column_left">
+                        <div class="laundry_main_page_column">
+                            <div class="laundry_column_left">
                                 <div class="characteristics_rolls laundry_main_box">
-                                    <span class="laundry_header">Characteristics &amp; Rolls</span>
+                                    <span class="laundry_header">Characteristics and Rolls</span>
                                     <div class="row">
                                         <div class="col">
                                             <span class="laundry_title">STR</span>
@@ -226,10 +216,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="main_page_column">
-                            <div class="column_right">
+                        <div class="laundry_main_page_column">
+                            <div class="laundry_column_right">
                                 <div class="points laundry_main_box">
-                                    <span class="laundry_header">Sanity &amp; HP</span>
+                                    <span class="laundry_header">Sanity and Hit Points</span>
                                     <div class="initial">
                                         <span class="laundry_title">Initial SAN</span>
                                         <span class="dsf dsf_initial_sanity"></span>
@@ -266,7 +256,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="investigator_skills laundry_main_box">
+                    <div class="agent_skills laundry_main_box">
                         <span class="laundry_header">Investigator Skills</span>
                         <div class="column">
                             <div class="laundry_skill_item">
@@ -300,6 +290,11 @@
                                 <span class="skill_value dsf dsf_skill_bargain"></span>
                             </div>
                             <div class="laundry_skill_item">
+                                <span class="skill_check dsf dsf_skill_brawl_check checkbox"></span>
+                                <span class="skill_name">brawl</span>
+                                <span class="skill_value dsf dsf_skill_brawl"></span>
+                            </div>
+                            <div class="laundry_skill_item">
                                 <span class="skill_check dsf dsf_skill_bureaucracy_check checkbox"></span>
                                 <span class="skill_name">bureaucracy</span>
                                 <span class="skill_value dsf dsf_skill_bureaucracy"></span>
@@ -308,6 +303,11 @@
                                 <span class="skill_check dsf dsf_skill_climb_check checkbox"></span>
                                 <span class="skill_name">climb</span>
                                 <span class="skill_value dsf dsf_skill_climb"></span>
+                            </div>
+                            <div class="laundry_skill_item">
+                                <span class="skill_check dsf dsf_skill_command_check checkbox"></span>
+                                <span class="skill_name">command</span>
+                                <span class="skill_value dsf dsf_skill_command"></span>
                             </div>
                             <div class="laundry_skill_item">
                                 <span class="skill_check">&nbsp;</span>
@@ -333,6 +333,11 @@
                                 <span class="skill_check dsf dsf_skill_computer_use4_check checkbox"></span>
                                 <span class="skill_name dsf dsf_skill_computer_use4_name"></span>
                                 <span class="skill_value dsf dsf_skill_computer_use4"></span>
+                            </div>
+                            <div class="laundry_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_computer_use5_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_computer_use5_name"></span>
+                                <span class="skill_value dsf dsf_skill_computer_use5"></span>
                             </div>
                             <div class="laundry_skill_item">
                                 <span class="skill_check">&nbsp;</span>
@@ -365,6 +370,11 @@
                                 <span class="skill_value dsf dsf_skill_disguise"></span>
                             </div>
                             <div class="laundry_skill_item">
+                                <span class="skill_check dsf dsf_skill_dodge_check checkbox"></span>
+                                <span class="skill_name">dodge</span>
+                                <span class="skill_value dsf dsf_skill_dodge"></span>
+                            </div>
+                            <div class="laundry_skill_item">
                                 <span class="skill_check">&nbsp;</span>
                                 <span class="skill_name">drive</span>
                                 <span class="skill_value">&nbsp;</span>
@@ -395,23 +405,6 @@
                                 <span class="skill_value dsf dsf_skill_fine_manipulation"></span>
                             </div>
                             <div class="laundry_skill_item">
-                                <span class="skill_check dsf dsf_skill_custom1_check checkbox"></span>
-                                <span class="skill_name dsf dsf_skill_custom1_name"></span>
-                                <span class="skill_value dsf dsf_skill_custom1"></span>
-                            </div>
-                            <div class="laundry_skill_item">
-                                <span class="skill_check dsf dsf_skill_custom2_check checkbox"></span>
-                                <span class="skill_name dsf dsf_skill_custom2_name"></span>
-                                <span class="skill_value dsf dsf_skill_custom2"></span>
-                            </div>
-                            <div class="laundry_skill_item">
-                                <span class="skill_check dsf dsf_skill_custom3_check checkbox"></span>
-                                <span class="skill_name dsf dsf_skill_custom3_name"></span>
-                                <span class="skill_value dsf dsf_skill_custom3"></span>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="laundry_skill_item">
                                 <span class="skill_check dsf dsf_skill_first_aid_check checkbox"></span>
                                 <span class="skill_name">first aid</span>
                                 <span class="skill_value dsf dsf_skill_first_aid"></span>
@@ -426,6 +419,8 @@
                                 <span class="skill_name">grapple</span>
                                 <span class="skill_value dsf dsf_skill_grapple"></span>
                             </div>
+                        </div>
+                        <div class="column">
                             <div class="laundry_skill_item">
                                 <span class="skill_check dsf dsf_skill_heavy_machinery_check checkbox"></span>
                                 <span class="skill_name">heavy machinery</span>
@@ -481,6 +476,16 @@
                                 <span class="skill_name dsf dsf_skill_knowledge1_name"></span>
                                 <span class="skill_value dsf dsf_skill_knowledge1"></span>
                             </div>
+                            <div class="laundry_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_knowledge2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_knowledge2_name"></span>
+                                <span class="skill_value dsf dsf_skill_knowledge2"></span>
+                            </div>
+                            <div class="laundry_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_knowledge3_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_knowledge3_name"></span>
+                                <span class="skill_value dsf dsf_skill_knowledge3"></span>
+                            </div>
                             <div class="laundry_skill_item">
                                 <span class="skill_check">&nbsp;</span>
                                 <span class="skill_name">own language</span>
@@ -505,6 +510,11 @@
                                 <span class="skill_check dsf dsf_skill_other_language2_check checkbox"></span>
                                 <span class="skill_name dsf dsf_skill_other_language2_name"></span>
                                 <span class="skill_value dsf dsf_skill_other_language2"></span>
+                            </div>
+                            <div class="laundry_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_other_language3_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_other_language3_name"></span>
+                                <span class="skill_value dsf dsf_skill_other_language3"></span>
                             </div>
                             <div class="laundry_skill_item">
                                 <span class="skill_check dsf dsf_skill_listen_check checkbox"></span>
@@ -532,11 +542,6 @@
                                 <span class="skill_value dsf dsf_skill_persuade"></span>
                             </div>
                             <div class="laundry_skill_item">
-                                <span class="skill_check dsf dsf_skill_pharmacy_check checkbox"></span>
-                                <span class="skill_name">pharmacy</span>
-                                <span class="skill_value dsf dsf_skill_pharmacy"></span>
-                            </div>
-                            <div class="laundry_skill_item">
                                 <span class="skill_check">&nbsp;</span>
                                 <span class="skill_name">pilot</span>
                                 <span class="skill_value">&nbsp;</span>
@@ -551,8 +556,6 @@
                                 <span class="skill_name dsf dsf_skill_pilot2_name"></span>
                                 <span class="skill_value dsf dsf_skill_pilot2"></span>
                             </div>
-                        </div>
-                        <div class="column">
                             <div class="laundry_skill_item">
                                 <span class="skill_check dsf dsf_skill_psychotherapy_check checkbox"></span>
                                 <span class="skill_name">psychotherapy</span>
@@ -578,6 +581,8 @@
                                 <span class="skill_name dsf dsf_skill_repair3_name"></span>
                                 <span class="skill_value dsf dsf_skill_repair3"></span>
                             </div>
+                        </div>
+                        <div class="column">
                             <div class="laundry_skill_item">
                                 <span class="skill_check dsf dsf_skill_research_check checkbox"></span>
                                 <span class="skill_name">research</span>
@@ -607,6 +612,16 @@
                                 <span class="skill_check dsf dsf_skill_science3_check checkbox"></span>
                                 <span class="skill_name dsf dsf_skill_science3_name"></span>
                                 <span class="skill_value dsf dsf_skill_science3"></span>
+                            </div>
+                            <div class="laundry_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_science4_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_science4_name"></span>
+                                <span class="skill_value dsf dsf_skill_science4"></span>
+                            </div>
+                            <div class="laundry_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_science5_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_science5_name"></span>
+                                <span class="skill_value dsf dsf_skill_science5"></span>
                             </div>
                             <div class="laundry_skill_item">
                                 <span class="skill_check dsf dsf_skill_sense_check checkbox"></span>
@@ -668,10 +683,35 @@
                                 <span class="skill_name dsf dsf_skill_technology_use2_name"></span>
                                 <span class="skill_value dsf dsf_skill_technology_use2"></span>
                             </div>
+                            <div class="laundry_sub_skill_item">
+                                <span class="skill_check dsf dsf_skill_technology_use3_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_technology_use3_name"></span>
+                                <span class="skill_value dsf dsf_skill_technology_use3"></span>
+                            </div>
+                            <div class="laundry_skill_item">
+                                <span class="skill_check dsf dsf_skill_throw_check checkbox"></span>
+                                <span class="skill_name">throw</span>
+                                <span class="skill_value dsf dsf_skill_throw"></span>
+                            </div>
                             <div class="laundry_skill_item">
                                 <span class="skill_check dsf dsf_skill_track_check checkbox"></span>
                                 <span class="skill_name">track</span>
                                 <span class="skill_value dsf dsf_skill_track"></span>
+                            </div>
+                            <div class="laundry_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom1_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom1_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom1"></span>
+                            </div>
+                            <div class="laundry_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom2_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom2_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom2"></span>
+                            </div>
+                            <div class="laundry_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom3_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom3_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom3"></span>
                             </div>
                             <div class="laundry_skill_item">
                                 <span class="skill_check dsf dsf_skill_custom4_check checkbox"></span>
@@ -693,217 +733,149 @@
                                 <span class="skill_name dsf dsf_skill_custom7_name"></span>
                                 <span class="skill_value dsf dsf_skill_custom7"></span>
                             </div>
+                            <div class="laundry_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom8_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom8_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom8"></span>
+                            </div>
+                            <div class="laundry_skill_item">
+                                <span class="skill_check dsf dsf_skill_custom9_check checkbox"></span>
+                                <span class="skill_name dsf dsf_skill_custom9_name"></span>
+                                <span class="skill_value dsf dsf_skill_custom9"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="weapons laundry_main_box">
-                    <span class="laundry_header">Weapons</span>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check weapons_header">&nbsp;</span>
-                        <span class="weapons_name weapons_header">name</span>
-                        <span class="weapons_percent weapons_header">%</span>
-                        <span class="weapons_damage weapons_header">damage</span>
-                        <span class="weapons_malfunction weapons_header">malf</span>
-                        <span class="weapons_hands weapons_header">hnd</span>
-                        <span class="weapons_range weapons_header">rng</span>
-                        <span class="weapons_num_attack weapons_header">#att</span>
-                        <span class="weapons_shots weapons_header">shots</span>
-                        <span class="weapons_hitpoints weapons_header">hp</span>
+                <div class="laundry_combat laundry_main_box">
+                    <span class="laundry_header">Combat Skills</span>
+                    <div class="laundry_combat_item">
+                        <span class="laundry_combat_check laundry_combat_header">&nbsp;</span>
+                        <span class="laundry_combat_name laundry_combat_header">Skill</span>
+                        <span class="laundry_combat_percent laundry_combat_header">%</span>
+                        <span class="laundry_combat_weapon laundry_combat_header">Weapon Details</span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon1_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon1_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon1_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon1_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon1_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon1_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon1_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon1_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon1_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon1_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat1_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat1_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat1_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat1_weapon"></span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon2_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon2_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon2_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon2_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon2_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon2_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon2_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon2_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon2_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon2_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat2_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat2_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat2_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat2_weapon"></span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon3_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon3_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon3_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon3_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon3_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon3_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon3_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon3_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon3_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon3_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat3_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat3_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat3_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat3_weapon"></span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon4_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon4_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon4_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon4_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon4_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon4_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon4_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon4_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon4_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon4_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat4_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat4_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat4_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat4_weapon"></span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon5_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon5_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon5_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon5_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon5_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon5_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon5_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon5_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon5_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon5_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat5_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat5_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat5_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat5_weapon"></span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon6_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon6_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon6_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon6_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon6_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon6_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon6_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon6_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon6_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon6_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat6_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat6_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat6_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat6_weapon"></span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon7_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon7_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon7_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon7_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon7_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon7_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon7_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon7_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon7_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon7_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat7_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat7_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat7_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat7_weapon"></span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon8_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon8_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon8_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon8_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon8_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon8_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon8_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon8_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon8_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon8_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat8_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat8_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat8_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat8_weapon"></span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon9_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon9_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon9_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon9_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon9_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon9_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon9_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon9_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon9_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon9_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat9_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat9_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat9_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat9_weapon"></span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon10_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon10_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon10_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon10_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon10_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon10_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon10_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon10_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon10_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon10_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat10_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat10_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat10_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat10_weapon"></span>
                     </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon11_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon11_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon11_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon11_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon11_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon11_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon11_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon11_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon11_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon11_hitpoints"></span>
-                    </div>
-                    <div class="laundry_weapons_item">
-                        <span class="weapons_check dsf dsf_weapon12_check checkbox"></span>
-                        <span class="weapons_name dsf dsf_weapon12_name"></span>
-                        <span class="weapons_percent dsf dsf_weapon12_percent"></span>
-                        <span class="weapons_damage dsf dsf_weapon12_damage"></span>
-                        <span class="weapons_malfunction dsf dsf_weapon12_malfunction"></span>
-                        <span class="weapons_hands dsf dsf_weapon12_hands"></span>
-                        <span class="weapons_range dsf dsf_weapon12_range"></span>
-                        <span class="weapons_num_attack dsf dsf_weapon12_num_attack"></span>
-                        <span class="weapons_shots dsf dsf_weapon12_shots"></span>
-                        <span class="weapons_hitpoints dsf dsf_weapon12_hitpoints"></span>
+                    <div class="laundry_laundry_combat_item">
+                        <span class="laundry_combat_check dsf dsf_combat11_check checkbox"></span>
+                        <span class="laundry_combat_name dsf dsf_combat11_skill"></span>
+                        <span class="laundry_combat_percent dsf dsf_combat11_percent"></span>
+                        <span class="laundry_combat_damage dsf dsf_combat11_weapon"></span>
                     </div>
                 </div>
-                <div class="page_marker">
+                <div class="laundry_page_marker">
                     <hr />
                 </div>
-                <div class="top_page_2">
-                    <div class="main_page_column">
-                        <div class="column_left">
-                            <div class="posessions laundry_main_box">
+                <div class="laundry_top_page_2">
+                    <div class="laundry_main_page_column">
+                        <div class="laundry_column_left">
+                            <div class="laundry_posessions laundry_main_box">
                                 <span class="laundry_header">Posessions</span>
                                 <span class="laundry_area readonly laundry_posessions dsf dsf_laundry_posessions"></span>
                             </div>
-                            <div class="disciplinary laundry_main_box">
+                            <div class="laundry_disciplinary laundry_main_box">
                                 <span class="laundry_header">Disciplinary record</span>
                                 <span class="laundry_area readonly laundry_disciplinary dsf dsf_laundry_disciplinary"></span>
                             </div>
-                            <div class="psychiatric_history laundry_main_box">
+                            <div class="laundry_psychiatric_history laundry_main_box">
                                 <span class="laundry_header">Psychiatric history</span>
                                 <span class="laundry_area readonly laundry_psychiatric dsf dsf_laundry_psychiatric"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="main_page_column">
-                        <div class="column_right">
-                            <div class="training_courses laundry_main_box">
+                    <div class="laundry_main_page_column">
+                        <div class="laundry_column_right">
+                            <div class="laundry_training_courses laundry_main_box">
                                 <span class="laundry_header">Training courses attended</span>
                                 <span class="laundry_area readonly laundry_training dsf dsf_laundry_training"></span>
                             </div>
-                            <div class="certification laundry_main_box">
+                            <div class="laundry_certification laundry_main_box">
                                 <span class="laundry_header">Certification</span>
                                 <span class="laundry_area readonly laundry_certification dsf dsf_laundry_certification"></span>
                             </div>
                         </div>
                     </div>
                 </div>
-                            <div class="laundry_security laundry_main_box">
-                                <span class="laundry_header">Security Clearances</span>
-                                <span class="laundry_area readonly dsf dsf_laundry_security"></span>
-                            </div>
-                            <div class="it_equipment laundry_main_box">
-                                <span class="laundry_header">IT equipment</span>
-                            </div>
-                            <div class="spells laundry_main_box">
-                                <span class="laundry_header">Spells</span>
-                            </div>
-                            <div class="notes laundry_main_box">
-                                <span class="laundry_header">Notes</span>
-                                <span class="laundry_area readonly dsf dsf_laundry_notes"></span>
-                            </div>
-                <div class="page_marker">
+                <div class="laundry_security laundry_main_box">
+                    <span class="laundry_header">Security Clearances</span>
+                    <span class="laundry_area readonly dsf dsf_laundry_security"></span>
+                </div>
+                <div class="laundry_it_equipment laundry_main_box">
+                    <span class="laundry_header">IT equipment</span>
+                    <span class="laundry_area readonly dsf dsf_laundry_it_equipment"></span>
+                </div>
+                <div class="laundry_spells laundry_main_box">
+                    <span class="laundry_header">Spells</span>
+                    <span class="laundry_area readonly dsf dsf_laundry_spells"></span>
+                </div>
+                <div class="laundry_notes laundry_main_box">
+                    <span class="laundry_header">Notes</span>
+                    <span class="laundry_area readonly dsf dsf_laundry_notes"></span>
+                </div>
+                <div class="laundry_page_marker">
                     <hr />
+                </div>
+                <div class="laundry_bio laundry_main_box">
+                    <span class="laundry_header">Biography</span>
+                    <span class="dsf dsf_bio"></span>
                 </div>
             </div>
       <!-- End HTML Template - Don't copy anything below here into the template! -->

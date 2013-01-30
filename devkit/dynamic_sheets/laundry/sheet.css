@@ -2,9 +2,32 @@
 * This is the CSS for the laundry
 *****************************/
 
-.ds_laundry
-{
-    width: 700px;
+@media print {
+    body * {
+            visibility: hidden;
+    }
+    div.dynamic_sheet_container * {
+            visibility: visible;
+    }
+    div.dynamic_sheet_container {
+            position: absolute;
+            left: 0;
+            top: 0;
+    }
+    .ds_laundry
+    {
+        width: 1000px;
+        font-family: "Lucida Console", Monaco, monospace;
+    }
+
+}
+
+@media screen {
+    .ds_laundry
+    {
+        width: 700px;
+        font-family: "Lucida Console", Monaco, monospace;
+    }
 }
 
 .ds_laundry .laundry_main_box
@@ -23,17 +46,43 @@
     clear: left;
 }
 
+.ds_laundry .laundry_mast
+{
+    width: 40%;
+    font-size: 200%;
+    font-width: 200%;
+    font-weight: bold;
+    background-color: #E0E0E0;
+    color: black;
+    float: left;
+    text-align: left;
+    margin-bottom: .25em;
+}
+.ds_laundry .laundry_mast_right
+{
+    width: 60%;
+    font-size: 200%;
+    font-width: 200%;
+    font-weight: bold;
+    background-color: #E0E0E0;
+    color: black;
+    float: right;
+    text-align: right;
+    margin-bottom: .25em;
+}
+
 .ds_laundry .laundry_header
 {
     width: 100%;
     font-size: 125%;
     font-weight: bold;
-    background-color: black;
-    color: white;
+    background-color: #E0E0E0;
+    color: black;
     float: left;
-    text-align: center;
+    text-align: left;
     margin-bottom: .25em;
 }
+
 
 .ds_laundry .laundry_hidden
 {
@@ -41,159 +90,73 @@
     visibility: hidden;
 }
 
-.ds_laundry .page_marker
-{
-    margin-top: 1em;
-    margin-bottom: 1em;
+@media screen {
+    .ds_laundry .laundry_page_marker {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+}
+@media print {
+    .ds_laundry .laundry_page_marker {
+        page-break-after:always;
+    }
 }
 
-.ds_laundry .main_page_column
+.ds_laundry .laundry_main_page_column
 {
     width: 50%;
     float: left;
 }
 
-.ds_laundry .column_left
+.ds_laundry .laundry_column_left
 {
     padding-right: 3px;
 }
 
-.ds_laundry .column_right
+.ds_laundry .laundry_column_right
 {
     padding-left: 3px;
 }
 
-.ds_laundry .top_page_2
+.ds_laundry .laundry_top_page_2
 {
     overflow: auto;
 }
 
 /****************************
-* Left Sidebar / Header
-*****************************/
-.ds_laundry .laundry_sidebar
-{
-    width: 5em;
-    height: 50em;
-    position: relative;
-    float: left;
-    background-color: Black;
-    color: White;
-    margin-right: 6px;
-}
-
-.ds_laundry .laundry_year
-{
-    background-color: black;
-    color: white;
-    float: left;
-    width: 100%;
-    text-align: center;
-}
-
-.ds_laundry .laundry_year_select
-{
-    font-size: 100%;
-    font-weight: normal;
-    background-color: black;
-    color: white;
-    float: left;
-    width: 100%;
-    text-align: center;
-    border: 0px;
-    padding: 0px;
-    margin: 0px;
-}
-
-.ds_laundry .laundry_sidebar .rotate_neg_90
-{
-    border-width: 0px;
-    border-style: solid;
-    border-color: Red;
-    position: absolute;
-    bottom: -3em;
-    width: 45em;
-    left: 0px;
-    
-    -ms-transform: rotate(-90deg);
-    -ms-transform-origin: 0% 0%;
-    
-    -o-transform: rotate(-90deg);
-    -o-transform-origin: 0% 0%;
-    
-    -webkit-transform: rotate(-90deg);
-    -webkit-transform-origin: 0% 0%;
-    
-    -moz-transform: rotate(-90deg);
-    -moz-transform-origin: 0% 0%;
-}
-
-.ds_laundry .laundry_gametitle
-{
-    float: left;
-    width: 25em;
-}
-
-.ds_laundry .laundry_gametitle .laundry_gametitle
-{
-    font-size: 200%;
-    font-weight: bold;
-}
-
-.ds_laundry .laundry_gametitle .author
-{
-    font-size: 75%;
-}
-
-.ds_laundry .player_info
-{
-    margin-left: 2em;
-    float: left;
-    background-color: Window;
-    color: WindowText;
-    padding: 2px 2px 2px 2px;
-    margin-top: 0.5em;
-}
-
-.ds_laundry .laundry_sidebar a
-{
-    text-decoration: none;
-}
-
-/****************************
 * Character Info
 *****************************/
-.ds_laundry .character_info .laundry_title 
+.ds_laundry .laundry_character_info .laundry_title 
 {
     float: left;
     padding-right: 6px;
 }
 
-.ds_laundry .character_info .dsf
+.ds_laundry .laundry_character_info .dsf
 {
     float: left;
     min-width: 50%;
 }
 
-.ds_laundry .sex
+.ds_laundry .laundry_sex
 {
     float: left;
     width: 50%;
 }
 
-.ds_laundry .sex .dsf
+.ds_laundry .laundry_sex .dsf
 {
     float: left;
     min-width: 25%;
 }
 
-.ds_laundry .age
+.ds_laundry .laundry_age
 {
     float: left;
     width: 50%;
 }
 
-.ds_laundry .age .dsf
+.ds_laundry .laundry_age .dsf
 {
     float: left;
     min-width: 25%;
@@ -202,7 +165,7 @@
 /****************************
 * Characteristics and Rolls
 *****************************/
-.ds_laundry .rolls_and_points
+.ds_laundry .laundry_rolls_and_points
 {
     overflow: auto;
 }
@@ -287,40 +250,40 @@
 }
 
 /****************************
-* Investigator Skills
+* Agent Skills
 *****************************/
-.ds_laundry .investigator_skills .column
+.ds_laundry .agent_skills .column
 {
     float: left;
     width: 33.33%;
     position: relative;
 }
 
-.ds_laundry .investigator_skills .laundry_skill_item
+.ds_laundry .agent_skills .laundry_skill_item
 {
     clear: left;
 }
 
-.ds_laundry .investigator_skills .laundry_sub_skill_item
+.ds_laundry .agent_skills .laundry_sub_skill_item
 {
     clear: left;
 }
 
-.ds_laundry .investigator_skills .skill_check
+.ds_laundry .agent_skills .skill_check
 {
     float: left;
     width: 25px;
     clear: left;
 }
 
-.ds_laundry .investigator_skills .skill_name
+.ds_laundry .agent_skills .skill_name
 {
     text-transform: capitalize;
     float: left;
     width: 10em;
 }
 
-.ds_laundry .investigator_skills .laundry_sub_skill_item .skill_name
+.ds_laundry .agent_skills .laundry_sub_skill_item .skill_name
 {
     text-transform: capitalize;
     float: left;
@@ -328,7 +291,7 @@
     margin-left: 1em;
 }
 
-.ds_laundry .investigator_skills .skill_value
+.ds_laundry .agent_skills .skill_value
 {
     float: left;
 }
@@ -342,176 +305,36 @@
     text-transform: capitalize;
 }
 
-.ds_laundry .laundry_character_image
-{
-    width: 12em;
-    height: 12em;
-    border-width: 1px;
-    border-style: solid;
-    border-color: Black;
-    padding: 2px 2px 2px 2px;
-    display: block;
-    float: left;
-    text-align: center;
-    overflow: hidden;
-}
-
-.ds_laundry .avatar_image
-{
-    width: auto;
-    height: auto;
-}
-
 /****************************
-* Weapons
+* Combat Skills
 *****************************/
-.ds_laundry .laundry_weapons_item 
+.ds_laundry .laundry_combat_item 
 {
     clear: left;
 }
 
-.ds_laundry .weapons_header
+.ds_laundry .laundry_combat_header
 {
-    font-style: italic;
+    font-weight: bold;
 }
 
-.ds_laundry .weapons_check
+.ds_laundry .laundry_combat_check
 {
     float: left;
     clear: left;
     width: 25px;
 }
 
-.ds_laundry .weapons_name
+.ds_laundry .laundry_combat_name
 {
     float: left;
-    width: 180px;
+    width: 240px;
 }
 
-.ds_laundry .weapons_percent
+.ds_laundry .laundry_combat_percent
 {
     float: left;
     width: 50px;
 }
 
-.ds_laundry .weapons_damage
-{
-    float: left;
-    width: 150px;
-}
-
-.ds_laundry .weapons_malfunction
-{
-    float: left;
-    width: 40px;
-}
-
-.ds_laundry .weapons_hands
-{
-    float: left;
-    width: 30px;
-}
-
-.ds_laundry .weapons_range
-{
-    float: left;
-    width: 100px;
-}
-
-.ds_laundry .weapons_num_attack
-{
-    float: left;
-    width: 30px;
-}
-
-.ds_laundry .weapons_shots
-{
-    float: left;
-    width: 40px;
-}
-
-.ds_laundry .weapons_hitpoints
-{
-    float: left;
-    width: 30px;
-}
-
-/****************************
-* Personal Data
-*****************************/
-.ds_laundry .personal_data .laundry_title
-{
-    float: left;
-    margin-right: 6px;
-}
-
-.ds_laundry .personal_data .dsf
-{
-    float: left;
-    min-width: 300px;
-}
-
-/****************************
-* Income and Savings
-*****************************/
-.ds_laundry .income_savings .laundry_title
-{
-    float: left;
-    margin-right: 6px;
-}
-
-.ds_laundry .income_savings .dsf
-{
-    float: left;
-    min-width: 40%;
-}
-
-/****************************
-* Adventuring Gear and Possessions
-*****************************/
-.ds_laundry .adventuring_gear_possessions .dsf
-{
-    float: left;
-    min-width: 90%;
-}
-
-/****************************
-* Mythos Tomes Read
-*****************************/
-.ds_laundry .mythos_tomes_read .dsf
-{
-    float: left;
-    min-width: 90%;
-}
-
-/****************************
-* Artifacts and Spells
-*****************************/
-.ds_laundry .artifacts_spells div
-{
-    float: left;
-    width: 50%;
-}
-
-.ds_laundry .artifacts_spells_subheader
-{
-    float: left;
-    font-weight: bold;
-    margin-right: 6px;
-}
-
-.ds_laundry .artifacts_spells .dsf
-{
-    float: left;
-    min-width: 50%;
-}
-
-/****************************
-* Monster History
-*****************************/
-.ds_laundry .monster_history .dsf
-{
-    float: left;
-    min-width: 90%;
-}
 
