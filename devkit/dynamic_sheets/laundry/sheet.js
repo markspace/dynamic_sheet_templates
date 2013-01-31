@@ -1,5 +1,8 @@
 /*
-* This is the javascript specific to the laundry DST
+* This is the javascript specific to the laundry DST 
+* by Mark Davidson
+*
+* Lots of ideas from Langy and ChainsawXIV
 */
 
 // Global Storage
@@ -11,25 +14,15 @@ var laundry_default_values = {
     "cthulhu_sanity": "99",
 
     "skill_appraise": "15",
-    "skill_art1": "5",
-    "skill_art2": "5",
     "skill_athletics": "10",
     "skill_bargain": "5",
     "skill_brawl": "25",
     "skill_bureaucracy": "5",
     "skill_climb": "40",
     "skill_command": "5",
-    "skill_computer_use1": "5",
-    "skill_computer_use2": "5",
-    "skill_computer_use3": "5",
-    "skill_computer_use4": "5",
-    "skill_craft1": "5",
-    "skill_craft2": "5",
     "skill_cthulhu_mythos": "0",
     "skill_demolition": "1",
     "skill_disguise": "5",
-    "skill_drive1": "20",
-    "skill_drive2": "20",
     "skill_etiquette": "5",
     "skill_fast_talk": "5",
     "skill_fine_manipulation": "5",
@@ -45,23 +38,14 @@ var laundry_default_values = {
     "skill_knowledge_law": "5",
     "skill_knowledge_occult": "5",
     "skill_knowledge_politics": "5",
-    "skill_knowledge1": "0",
     "skill_listen": "25",
     "skill_medicine": "5",
     "skill_navigate": "10",
     "skill_perform": "5",
     "skill_persuade": "15",
-    "skill_pilot1": "0",
-    "skill_pilot2": "0",
     "skill_psychotherapy": "0",
-    "skill_repair1" : "15",
-    "skill_repair2" : "15",
-    "skill_repair3" : "15",
     "skill_research": "25",
     "skill_ride": "5",
-    "skill_science1": "0",
-    "skill_science2": "0",
-    "skill_science3": "0",
     "skill_sense": "10",
     "skill_skill_sleight_of_hand": "5",
     "skill_skill_sorcery": "0",
@@ -71,8 +55,6 @@ var laundry_default_values = {
     "skill_strategy": "0",
     "skill_swim": "25",
     "skill_teach": "10",
-    "skill_technology_use1": "5",
-    "skill_technology_use2": "5",
     "skill_throw": "25",
     "skill_track": "10",
 
@@ -117,6 +99,7 @@ function laundry_dataPreLoad(opts) {
     $.fn.editable.defaults['onblur'] = 'submit';
 
     aisleten.characters.jeditablePlaceholder = "__";
+    aisleten.characters.jeditableSubmit = '';
 
     // Called just before the data is loaded.
     var tempData = {};
@@ -213,8 +196,8 @@ function laundry_derivedStats() {
     jQuery('.dsf_know').html(know);
 
     var ownLanguage = parseInt(jQuery('.dsf_skill_own_language').html());
-    if (isNaN(ownLanguage) || ownLanguage < know) {
-        ownLanguage = know;
+    if (isNaN(ownLanguage) || ownLanguage < idea) {
+        ownLanguage = idea;
         jQuery('.dsf_skill_own_language').html(ownLanguage);
     }
     laundry_calculateSanity();

@@ -27,6 +27,8 @@
     {
         width: 700px;
         font-family: "Lucida Console", Monaco, monospace;
+        font-size:16px;
+        line-height:normal;
     }
 }
 
@@ -38,6 +40,7 @@
     overflow: auto;
     padding-bottom: .5em;
     margin-bottom: 6px;
+    clear: left;
 }
 
 .ds_laundry .laundry_title
@@ -50,7 +53,6 @@
 {
     width: 40%;
     font-size: 200%;
-    font-width: 200%;
     font-weight: bold;
     background-color: #E0E0E0;
     color: black;
@@ -62,7 +64,6 @@
 {
     width: 60%;
     font-size: 200%;
-    font-width: 200%;
     font-weight: bold;
     background-color: #E0E0E0;
     color: black;
@@ -187,6 +188,14 @@
     width: 3.1em;
 }
 
+.ds_laundry .laundry_stat {
+    position:relative;
+    display:inline-block;
+    text-align:left;
+    width: 2em;
+    color:inherit;
+}
+
 .ds_laundry .characteristics_rolls .widecol .laundry_title
 {
     float: left;
@@ -283,6 +292,14 @@
     width: 10em;
 }
 
+.ds_laundry .agent_skills .skill_section
+{
+    text-transform: capitalize;
+    float: left;
+    width: 10em;
+    font-weight: bold;
+}
+
 .ds_laundry .agent_skills .laundry_sub_skill_item .skill_name
 {
     text-transform: capitalize;
@@ -294,6 +311,11 @@
 .ds_laundry .agent_skills .skill_value
 {
     float: left;
+    position:relative;
+    display:inline-block;
+    text-align:left;
+    width: 2em;
+    color:inherit;
 }
 
 .ds_laundry .skill_section_header
@@ -328,13 +350,33 @@
 .ds_laundry .laundry_combat_name
 {
     float: left;
-    width: 240px;
+    width: 250px;
 }
 
 .ds_laundry .laundry_combat_percent
 {
     float: left;
     width: 50px;
+}
+
+.ds_laundry .laundry_combat_weapon
+{
+    float: left;
+    position:relative;
+    display:inline-block;
+    text-align:left;
+    width: 20em;
+    color:inherit;
+}
+
+.ds_laundry .laundry_area
+{
+    float: left;
+    position:relative;
+    display:inline-block;
+    text-align:left;
+    width: 100%;
+    color:inherit;
 }
 
 
