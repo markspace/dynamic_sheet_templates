@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <title>DST Dev Kit</title>
+  <script type="text/javascript" src="javascripts/jquery-1.3.2.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.jeditable-1.7.1.js"></script>
+  <script type="text/javascript" src="javascripts/namespace.js"></script>
+  
+  <!-- This is where we do our magic. Take a look to get a better understanding of how to write javascript for your DST. -->
+  <script type="text/javascript" src="http://www.obsidianportal.com/javascripts/characters.js"></script>
+  
+  <!-- Load the example data. Modify this file to make sample data for your chosen system. -->
+  <script type="text/javascript" src="pendragon_example.js"></script>
+  
+  <!-- Load the CSS for the DST, replace with your own! -->
+<!--<link href="print.css" media="print" rel="stylesheet" type="text/css" />-->
+
+  <link href="dynamic_sheets/pendragon/sheet.css" rel="stylesheet" type="text/css" />
+  <!-- <link href="dynamic_sheets/pendragon/sheet.css" media="screen" rel="stylesheet" type="text/css" /> -->
+  
+  <!-- Load the JS for the DST, replace with your own! -->
+  <script type="text/javascript" src="dynamic_sheets/pendragon/sheet.js"></script>
+  
+</head>
+<body>
+  <p>
+    Below is an example dynamic character sheet. Try clicking on the values in order to edit them. This is how users will interact with a dynamic sheet.
+  </p>
+  <p>
+    If you want to make your own, make sure to <a href="http://help.obsidianportal.com/faqs/advanced/creating-a-dynamic-character-sheet-template-dst">read the tutorial</a> first. Then, just start editing the HTML in this file. Edit the sample data in <em>example_data.js</em> in order to create data that works with your chosen game system.
+  </p>
+  
+  <div class="dynamic_sheet_container">
+  
+    <!-- Every dynamic sheet will be surrounded by a div that has the class of "ds_DST_SLUG". In this example, the slug for my DST is 'minimal4e' -->
+    <div id="dynamic_sheet_999" class="dynamic_sheet ds_pendragon editable">
+      <!-- This is inserted automatically. Ignore it... -->
+      <span style="display:none;" class="dst_slug">pendragon</span>
+      <!-- 
+      Below is your HTML template.
+      Copy ONLY this section into the HTML Template textarea on Obsidian Portal. Do not copy any of the
+      surrounding HTML!
+      -->
+
+          <div class="content">
+            <div class="pendragon_p1">
+              <div class="pendragon_c1">
+                <div class="pendragon_title">
+                  <span class="pendragon_mast">Pendragon</span>
+                </div>
+                <div class="player">
+                  <span class="pendragon_title">Player:</span>
+                  <span class="dsf dsf_player"></span>
+                </div>
+                <div class="pendragon_personal_data pendragon_kvt">
+                  <span class="pendragon_header">Personal Data</span>
+                  <div>Name <span class="dsf dsf_name"></span></div>
+                  <div>Age <span class="dsf dsf_age"></span></div>
+                  <div>Son Number <span class="dsf dsf_son_number"></span></div>
+                  <div>Homeland <span class="dsf dsf_homeland"></span></div>
+                  <div>Culture <span class="dsf dsf_culture"></span></div>
+                  <div>Religion <span class="dsf dsf_religion"></span></div>
+                  <div>Lord <span class="dsf dsf_lord"></span></div>
+                  <div>Current Class <span class="dsf dsf_current_class"></span></div>
+                  <div>Current Home <span class="dsf dsf_current_home"></span></div>
+                </div>
+                <div class="pendragon_personality_traits pendragon_kv">
+                  <span class="pendragon_header">Personality Traits</span>
+                  <div>Chivalry Bonus <span class="dsf dsf_chivalry_bonus"></span></div>
+                  <div>Religious Bonus <span class="dsf dsf_religious_bonus"></span></div>
+                  <table class="pendragon_traits">
+                  <tr> 
+                    <th>Chaste</th><td><span class="dsf dsf_trait_chaste"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_lustful"></span></td><th>Lustful</th>
+                  </tr>
+                  <tr>
+                    <th>Energetic</th><td><span class="dsf dsf_trait_energetic"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_lazy"></span></td><th>Lazy</th>
+                  </tr>
+                  <tr>
+                    <th>Forgiving</th><td><span class="dsf dsf_trait_forgiving"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_vengeful"></span></td><th>Vengeful</th>
+                  </tr>
+                  <tr>
+                    <th>Generous</th><td><span class="dsf dsf_trait_generous"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_selfish"></span></td><th>Selfish</th>
+                  </tr>
+                  <tr>
+                    <th>Honest</th><td><span class="dsf dsf_trait_honest"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_deceitful"></span></td><th>Deceitful</th>
+                  </tr>
+                  <tr>
+                    <th>Just</th><td><span class="dsf dsf_trait_just"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_arbitrary"></span></td><th>Arbitrary</th>
+                  </tr>
+                  <tr>
+                    <th>Merciful</th><td><span class="dsf dsf_trait_merciful"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_cruel"></span></td><th>Cruel</th>
+                  </tr>
+                  <tr>
+                    <th>Pious</th><td><span class="dsf dsf_trait_pious"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_worldly"></span></td><th>Worldly</th>
+                  </tr>
+                  <tr>
+                    <th>Prudent</th><td><span class="dsf dsf_trait_prudent"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_reckless"></span></td><th>Reckless</th>
+                  </tr>
+                  <tr>
+                    <th>Temperate</th><td><span class="dsf dsf_trait_temperate"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_indulgent"></span></td><th>Indulgent</th>
+                  </tr>
+                  <tr>
+                    <th>Trusting</th><td><span class="dsf dsf_trait_trusting"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_suspicious"></span></td><th>Suspicious</th>
+                  </tr>
+                  <tr>
+                    <th>Valorous</th><td><span class="dsf dsf_trait_valorous"></span></td>
+                    <td>/</td><td><span class="dsf dsf_trait_cowardly"></span></td><th>Cowardly</th>
+                  </tr>
+                  </table>
+                  <div>Directed Trait <span class="dsf dsf_directed_trait1"></span></div>
+                  <div>Directed Trait <span class="dsf dsf_directed_trait2"></span></div>
+                </div>
+                <div class="pendragon_passions pendragon_kv">
+                  <span class="pendragon_header">Passions</span>
+                  <div>Loyalty Lord <span class="dsf dsf_passion_loyalty_lord"></span></div>
+                  <div>Love Family <span class="dsf dsf_passion_love_family"></span></div>
+                  <div>Hospitality <span class="dsf dsf_passion_hospitality"></span></div>
+                  <div>Honor <span class="dsf dsf_passion_honor"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_passion1_name"> </span><span class="dsf dsf_passion1"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_passion2_name"> </span><span class="dsf dsf_passion2"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_passion3_name"> </span><span class="dsf dsf_passion3"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_passion4_name"> </span><span class="dsf dsf_passion4"></span></div>
+                </div>
+                <div class="pendragon_equipment pendragon_kv">
+                  <span class="pendragon_header">Equipment Carried</span>
+                  <span class="pendragon_area readonly dsf dsf_equipment_carried"></span>
+                </div>
+              </div>
+              <div class="pendragon_c2">
+                <div class="pendragon_statistics pendragon_kv">
+                  <span class="pendragon_header">Statistics</span>
+                  <div>SIZ <span class="dsf dsf_siz"></span></div>
+                  <div>DEX <span class="dsf dsf_dex"></span></div>
+                  <div>STR <span class="dsf dsf_str"></span></div>
+                  <div>CON <span class="dsf dsf_con"></span></div>
+                  <div>APP <span class="dsf dsf_app"></span></div>
+                  <div>Damage <span class="dsf dsf_damage readonly"></span></div>
+                  <div>Healing Rate <span class="dsf dsf_healing_rate readonly"></span></div>
+                  <div>Movement Rate <span class="dsf dsf_movement_rate readonly"></span></div>
+                  <div>Total Hit Points <span class="dsf dsf_total_hp readonly"></span></div>
+                  <div>Unconscious <span class="dsf dsf_unconscious readonly"></span></div>
+                </div>
+                <div class="pendragon_distinctive_features">
+                  <span class="pendragon_header">Distinctive Features</span>
+                  <span class="pendragon_area readonly dsf dsf_distinctive_features"></span>
+                </div>
+                <div class="pendragon_skills pendragon_kv">
+                  <span class="pendragon_header">Skills</span>
+                  <div>Awareness <span class="dsf dsf_skill_awareness"></span></div>
+                  <div>Boating <span class="dsf dsf_skill_boating"></span></div>
+                  <div>Compose <span class="dsf dsf_skill_compose"></span></div>
+                  <div>Courtesy <span class="dsf dsf_skill_courtesy"></span></div>
+                  <div>Dancing <span class="dsf dsf_skill_dancing"></span></div>
+                  <div>Faerie Lore <span class="dsf dsf_skill_faerie_lore"></span></div>
+                  <div>Falconry <span class="dsf dsf_skill_falconry"></span></div>
+                  <div>First Aid <span class="dsf dsf_skill_first_aid"></span></div>
+                  <div>Flirting <span class="dsf dsf_skill_flirting"></span></div>
+                  <div>Folklore <span class="dsf dsf_skill_folklore"></span></div>
+                  <div>Gaming <span class="dsf dsf_skill_gaming"></span></div>
+                  <div>Heraldry <span class="dsf dsf_skill_heraldry"></span></div>
+                  <div>Hunting <span class="dsf dsf_skill_hunting"></span></div>
+                  <div>Intrigue <span class="dsf dsf_skill_intrigue"></span></div>
+                  <div>Orate <span class="dsf dsf_skill_orate"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_skill_play1_name"></span> <span class="dsf dsf_skill_play1"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_skill_read1_name"></span> <span class="dsf dsf_skill_read1"></span></div>
+                  <div>Recognize <span class="dsf dsf_skill_recognize"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_skill_religion1_name"></span> <span class="dsf dsf_skill_religion1"></span></div>
+                  <div>Romance <span class="dsf dsf_skill_romance"></span></div>
+                  <div>Singing <span class="dsf dsf_skill_singing"></span></div>
+                  <div>Stewardship <span class="dsf dsf_skill_stewardship"></span></div>
+                  <div>Swimming <span class="dsf dsf_skill_swimming"></span></div>
+                  <div>Tourney <span class="dsf dsf_skill_tourney"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_skill_extra1_name"></span> <span class="dsf dsf_skill_extra1"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_skill_extra2_name"></span> <span class="dsf dsf_skill_extra2"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_skill_extra3_name"></span> <span class="dsf dsf_skill_extra3"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_skill_extra4_name"></span> <span class="dsf dsf_skill_extra4"></span></div>
+                </div>
+                <div class="pendragon_squire pendragon_kv">
+                  <span class="pendragon_header">Squire</span>
+                  <div>Name <span class="dsf dsf_squire_name"></span></div>
+                  <div>Age <span class="dsf dsf_squire_age"></span></div>
+                  <div>First Aid <span class="dsf dsf_squire_first_aid"></span></div>
+                  <div>Battle <span class="dsf dsf_squire_battle"></span></div>
+                  <div>Horsemanship <span class="dsf dsf_squire_horsemanship"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_squire_skill1_name"></span> <span class="dsf dsf_squire_skill1"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_squire_skill2_name"></span> <span class="dsf dsf_squire_skill2"></span></div>
+                </div>
+              </div>
+              <div class="pendragon_c3">
+                <div class="pendragon_shield">
+                </div>
+                <div class="pendragon_glory pendragon_kv">
+                  <span class="pendragon_header">Glory</span>
+                  <div>This Game <span class="dsf dsf_glory_this_game"> </span></div>
+                  <div>Total <span class="dsf dsf_glory"> </span></div>
+                </div>
+                <div class="pendragon_current_hp pendragon_kv">
+                  <span class="pendragon_header">Current HP</span>
+                  <div>HP <span class="dsf dsf_current_hp"></span></div>
+                  <div>Wounds <span class="pendragon_area readonly dsf dsf_wounds"></span></div>
+                  <div>
+                    <span>Chiurgery Needed</span>
+                    <span class="dsf dsf_chiurgery_needed checkbox"></span>
+                  </div>
+                </div>
+                <div class="pendragon_combat_skills pendragon_kv">
+                  <span class="pendragon_header">Combat Skills</span>
+                  <div>Battle <span class="dsf dsf_combat_battle"></span></div>
+                  <div>Horsemanship <span class="dsf dsf_combat_horsemanship"></span></div>
+                  <div>Sword <span class="dsf dsf_combat_sword"></span></div>
+                  <div>Lance <span class="dsf dsf_combat_lance"></span></div>
+                  <div>Spear <span class="dsf dsf_combat_spear"></span></div>
+                  <div>Dagger <span class="dsf dsf_combat_dagger"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_combat_extra1_name"></span> <span class="dsf dsf_combat_extra1"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_combat_extra2_name"></span> <span class="dsf dsf_combat_extra2"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_combat_extra3_name"></span> <span class="dsf dsf_combat_extra3"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_combat_extra4_name"></span> <span class="dsf dsf_combat_extra4"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_combat_extra5_name"></span> <span class="dsf dsf_combat_extra5"></span></div>
+                  <div><span class="pendragon_custom dsf dsf_combat_extra6_name"></span> <span class="dsf dsf_combat_extra6"></span></div>
+                </div>
+                <div class="pendragon_joust_score">
+                  <span class="pendragon_header">Joust Score</span>
+                  <div>Wins <span class="dsf dsf_joust_wins"></span></div>
+                  <div>Losses <span class="dsf dsf_joust_losses"></span></div>
+                </div>
+                <div class="pendragon_horses pendragon_kv">
+                  <span class="pendragon_header">Horses</span>
+                  <div>Best Warhorse</div>
+                  <div>Type <span class="dsf dsf_horse1_type"></span></div>
+                  <div>Damage <span class="dsf dsf_horse1_damage"></span></div>
+                  <div>Move <span class="dsf dsf_horse1_move"></span></div>
+                  <div>Armor <span class="dsf dsf_horse1_armor"></span></div>
+                  <div>HP <span class="dsf dsf_horse1_hp"></span></div>
+                  <div>SIZ <span class="dsf dsf_horse1_siz"></span></div>
+                  <div>CON <span class="dsf dsf_horse1_con"></span></div>
+                  <div>DEX <span class="dsf dsf_horse1_dex"></span></div>
+                  <div>Attack <span class="dsf dsf_horse1_attack"></span></div>
+                  <div>Breed <span class="dsf dsf_horse1_breed"></span></div>
+                  <div>Riding <span class="dsf dsf_horse2_type"></span></div>
+                  <div>Move <span class="dsf dsf_horse2_move"></span></div>
+                  <div>Squire's <span class="dsf dsf_horse3_type"></span></div>
+                  <div>Move <span class="dsf dsf_horse3_move"></span></div>
+                  <div>#4 <span class="dsf dsf_horse4_type"></span></div>
+                  <div>Move <span class="dsf dsf_horse4_move"></span></div>
+                  <div>#5 <span class="dsf dsf_horse5_type"></span></div>
+                  <div>Move <span class="dsf dsf_horse5_move"></span></div>
+                </div>
+              </div>
+            </div>
+            <div class="pendragon_page_marker">
+              <hr />
+            </div>
+            <div class="pendragon_p2">
+              <div>
+                  <span class="pendragon_header">Family History and Events</span>
+                  <div><span class="pendragon_area readonly dsf dsf_family_history"></span></div>
+              </div>
+              <div>
+                  <span class="pendragon_header">Equipment</span>
+                  <div><span class="pendragon_area readonly dsf dsf_equipment"></span></div>
+              </div>
+              <div>
+                  <span class="pendragon_header">Holdings</span>
+                  <div><span class="pendragon_area readonly dsf dsf_equipment"></span></div>
+              </div>
+              <div>
+                  <span class="pendragon_header">Annual Glory Rewards</span>
+                  <div><span class="pendragon_area readonly dsf dsf_annual_glory_rewards"></span></div>
+              </div>
+              <div>
+                  <span class="pendragon_header">Character History</span>
+                  <div><span class="dsf dsf_bio"></span></div>
+              </div>
+            </div>
+
+
+          </div>
+
+      <!-- End HTML Template - Don't copy anything below here into the template! -->
+    </div> <!-- ds_minimal4e -->
+  </div> <!-- dynamic_sheet_container -->
+  <br/><br/>
+  
+  <button id="character-save-button">Save</button>
+  <br/>
+  <p>
+    Right here is a hidden &lt;div&gt; that holds the data values that will be saved to the server. Click the save button and then examine the DOM (using Firebug) to see what will be sent.
+  </p>
+  <div id="dynamic_sheet_values" style="display:none;"></div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+/****************************
+* This is the CSS for the pendragon
+*****************************/
+
+@media print {
+    body * {
+            visibility: hidden;
+    }
+    div.dynamic_sheet_container * {
+            visibility: visible;
+    }
+    div.dynamic_sheet_container {
+            position: absolute;
+            left: 0;
+            top: 0;
+    }
+    .ds_pendragon
+    {
+        width: 700px;
+        font-family: "Times New Roman", Times, serif;
+        font-size:14pt;
+        line-height:normal;
+    }
+
+}
+
+@media screen {
+    .ds_pendragon
+    {
+        width: 700px;
+        font-family: "Times New Roman", Times, serif;
+        font-size:14pt;
+        line-height:normal;
+    }
+}
+
+.ds_pendragon .jeditable_input{
+    right:-2px;
+    top:-1px;
+    height:14px;
+}
+
+.ds_pendragon input {
+    padding:0px 0px 0px 0px;
+    margin:-1px 0px 0px -1px;
+}
+
+div.editable .dsf {
+    cursor:pointer;
+}
+
+div.editable .dsf:hover {
+    color:#456d67;
+}
+
+div.editable .dsf_bio:hover {
+    color:#456d67;
+    cursor:text;
+}
+
+div.editable .area:hover{
+    color:#456d67;
+}
+
+
+
+
+.ds_pendragon .pendragon_mast
+{
+    width: 100%;
+    font-size: 300%;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin-bottom: .25em;
+}
+
+.ds_pendragon .pendragon_p1
+{
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    overflow: auto;
+    padding-bottom: .5em;
+    margin-bottom: 6px;
+    clear: left;
+}
+
+.ds_pendragon .pendragon_p2
+{
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    overflow: auto;
+    padding-bottom: .5em;
+    margin-bottom: 6px;
+    clear: left;
+}
+
+/* Columns */
+.ds_pendragon .pendragon_p1 .pendragon_c1
+{
+    width: 265px;
+    margin-right: 10px; 
+    float: left;
+}
+
+.ds_pendragon .pendragon_p1 .pendragon_c2
+{
+    width: 205px;
+    margin-right: 10px; 
+    float: left;
+}
+
+.ds_pendragon .pendragon_p1 .pendragon_c3
+{
+    width: 205px;
+    float: left;
+}
+
+.ds_pendragon .pendragon_title
+{
+    font-weight: bold;
+    clear: left;
+}
+
+.ds_pendragon .pendragon_header
+{
+    width: 100%;
+    font-size: 110%;
+    font-weight: bold;
+    background-color: #E8E8E8;
+    color: black;
+    float: left;
+    text-align: center;
+    margin-bottom: .25em;
+}
+
+
+.ds_pendragon .pendragon_hidden
+{
+    display: none;
+    visibility: hidden;
+}
+
+@media screen {
+    .ds_pendragon .pendragon_page_marker {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+}
+@media print {
+    .ds_pendragon .pendragon_page_marker {
+        page-break-after:always;
+    }
+}
+
+.ds_pendragon .pendragon_shield {
+    min-height: 150px;
+}
+
+.ds_pendragon .pendragon_kvt div>span:last-of-type {
+    min-width: 50%;
+    margin-left: .5em;
+    font-weight: bold;
+    float:right;
+    text-align:left;
+    display:inline-block;
+}
+
+.ds_pendragon .pendragon_kv div>span:last-of-type {
+    min-width: 20%;
+    margin-left: .5em;
+    font-weight: bold;
+    float:right;
+    text-align:right;
+    display:inline-block;
+}
+.ds_pendragon .pendragon_kv div {
+    clear: right;
+}
+
+.ds_pendragon .pendragon_kv .pendragon_custom {
+    min-width: 70%;
+    font-weight: normal;
+    display:inline-block;
+}
+
+.ds_pendragon .pendragon_kv>div, 
+.ds_pendragon .pendragon_kvt>div, 
+.ds_pendragon .pendragon_traits th, 
+.ds_pendragon .pendragon_traits td {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #E0E0E0;
+}
+
+.ds_pendragon .pendragon_personality_traits div>span:last-of-type {
+    min-width: 45%;
+}
+.ds_pendragon .pendragon_traits {
+    width: 100%;
+}
+.ds_pendragon .pendragon_traits td span {
+    min-width: 2ex;
+    text-align: right;
+    display:inline-block;
+    font-weight: bold;
+}
+.ds_pendragon .pendragon_traits tr th:first-of-type {
+    text-align: left;
+    font-weight: normal;
+}
+.ds_pendragon .pendragon_traits tr th:last-of-type {
+    text-align: right;
+    font-weight: normal;
+}
+
+
+.ds_pendragon .pendragon_area
+{
+    float: left;
+    position:relative;
+    display:inline-block;
+    text-align:left;
+    width: 100%;
+    color:inherit;
+}
+
+
