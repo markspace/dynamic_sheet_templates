@@ -190,10 +190,16 @@ div.editable .area:hover{
 .ds_pendragon .pendragon_kvt>div, 
 .ds_pendragon .pendragon_traits th, 
 .ds_pendragon .pendragon_traits td {
+    font-family: "Times New Roman", Times, serif;
+    font-size:14pt;
+    line-height:normal;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: #E0E0E0;
+    padding: 0;
+    vertical-align: baseline;
 }
+
 
 .ds_pendragon .pendragon_personality_traits div>span:last-of-type {
     min-width: 45%;
@@ -207,13 +213,20 @@ div.editable .area:hover{
     display:inline-block;
     font-weight: bold;
 }
+.ds_pendragon .pendragon_traits tr th {
+    font-family: "Times New Roman", Times, serif;
+    font-size:14pt;
+    line-height:normal;
+    background: #FFFFFF;
+    padding: auto;
+    vertical-align: auto;
+    font-weight: normal;
+}
 .ds_pendragon .pendragon_traits tr th:first-of-type {
     text-align: left;
-    font-weight: normal;
 }
 .ds_pendragon .pendragon_traits tr th:last-of-type {
     text-align: right;
-    font-weight: normal;
 }
 
 
