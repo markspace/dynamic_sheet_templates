@@ -218,8 +218,8 @@ div.editable .area:hover{
     font-size:14pt;
     line-height:normal;
     background: #FFFFFF;
-    padding: auto;
-    vertical-align: auto;
+    padding: 0;
+    vertical-align: baseline;
     font-weight: normal;
 }
 .ds_pendragon .pendragon_traits tr th:first-of-type {
